@@ -18,7 +18,7 @@ You have thought about it several times, maybe you even wrote a few lines of cod
 
 It does not have to be the next big thing, it does not have to be a tremendously ambitious and big project, it should just be something. Maybe you want to explore a new technology or framework? Or get into mobile application development? Join an open source project? Just get to it and work on it now and then, all you need to do is show that you are willing to improve as a developer and you will distinguish yourself from nearly everyone else. 
 
-###When we are on the subject...
+###While we are on the subject...
 One thing that really stuck with me when I read [Code Complete](http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670), was:
 
 >"Pat yourself on the back for reading this book. You're already learning more than most people in the software industry because one book is more than most programmers read each year (DeMarco and Lister 1999)."
