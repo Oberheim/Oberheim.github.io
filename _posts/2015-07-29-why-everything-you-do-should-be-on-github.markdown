@@ -5,7 +5,7 @@ date:   2015-07-29 16:27:46
 categories: GitHub
 comments: true
 ---
-I started studying computer science in 2010 and noticed that some of the students were actively using GitHub for their version control needs. I finally created my own account in September 2011 and thought that I was horribly late to the party, I had used various SVN based solutions for my school projects by then and finally decided that I should switch. However, I already had my workflows for SVN and TFS and never completed the transition, then I started to work full time within the .NET eco system and the company used a locally hosted TFS for version control. So I stayed put with my Visual Studio Online account and never thought more about it.
+I started studying computer science in 2010 and noticed that some of the students were actively using GitHub for their version control needs. I finally created my own account in September 2011 and thought that I was horribly late to the party, I had used various SVN based solutions for my school projects by then and finally decided that I should switch. However, I already had my workflows for SVN and TFS and never completed the transition. Then I started to work full time within the .NET eco system and the company used a locally hosted TFS for version control. So I stayed put with my Visual Studio Online account and never thought more about it.
 
 ###Until this summer, when I decided to start investing in myself
 You can be the most talented software developer at your company, your unit tests never fail, your code is flawless and you modernize your company's workflows and technology with every project you finish. You are 100% sure that your manager knows how much value you bring to your company, right?
