@@ -10,4 +10,4 @@ github_username:  Oberheim
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
+highlighter: null
