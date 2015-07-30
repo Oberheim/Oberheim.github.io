@@ -7,7 +7,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://oberheim.github.io" # the base hostname & protocol for your site
 twitter_username: Oberheimz
 github_username:  Oberheim
-linkedin_username: alexander-heimonen/96/4a7/a6b
+linkedin_username: alexanderheimonen
 full_name: Alexander Heimonen
 
 # Build settings
