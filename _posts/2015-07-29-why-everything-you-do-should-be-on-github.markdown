@@ -10,7 +10,7 @@ I started studying computer science in 2010 and noticed that some of the student
 ###Until this summer, when I decided to start investing in myself
 You can be the most talented software developer at your company, your unit tests never fail, your code is flawless and you modernize your company's workflows and technology with every project you finish. You are 100% sure that your manager knows how much value you bring to your company, right?
 
-The truth is that everything you do is not self evident to even the people in your team, even if you do something amazing, if no one sees it, it didn't happen! So not only do you need to focus on your development skills; *from a career perspective it is equally important to market your skills and endeavours*. 
+The truth is that everything you do is not self-evident to even the people in your team, even if you do something amazing, if no one sees it, it didn't happen! So not only do you need to focus on your development skills; *from a career perspective it is equally important to market your skills and endeavours*. 
 
 Getting a GitHub account does by no means solve this transparency problem, but once you have invested time in your personal projects and started to build an impressive contribution history, you have a really strong track record of your activities. I don't know about you, but I've been asked if I work on side projects on my free time on every job interview I've been to. I have truthfully answered that of course I do and proceeded to tell about the most recent project. But for some bizarre reason the source code has been protected in some invitation only TFS repository, so I could as well have made it all up. Now that everything I do is public knowledge on my account, I can just show it to my boss on my next performance review or salary review and of course the next time I am on the hunt for a job.
 
@@ -23,3 +23,5 @@ It does not have to be the next big thing, it does not have to be a tremendously
 One thing that really stuck with me when I read [Code Complete](http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670), was:
 
 >"Pat yourself on the back for reading this book. You're already learning more than most people in the software industry because one book is more than most programmers read each year (DeMarco and Lister 1999)."
+
+I do not find it particularly hard to find the time to read a book now and then and it really surprises me how uncommon it seems to be. It would be interesting to see similar statistics about spare time programming. After all, it is a valued trait by recruiters and managers, so any career devoted developer should try to pursue a project.
