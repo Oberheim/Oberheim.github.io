@@ -2,3 +2,7 @@ Article ideas
 - Why Continous Delivery matters
 - Solve problems in "Programming Pearls" and write about them
 - Lessons learned from ParanoiaSMIL
+- Article about bugs
+
+Projects
+- Descent campaing companion/helper
