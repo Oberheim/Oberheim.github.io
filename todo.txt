@@ -6,3 +6,9 @@ Article ideas
 
 Projects
 - Descent campaing companion/helper
+
+
+- Comments are bad
+  http://everything2.com/index.pl?node_id=1709851&displaytype=printable
+  http://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/
+  
