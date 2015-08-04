@@ -18,7 +18,6 @@ published: false
 In the academia I was taught that code without comments is bad because it is hard to read and understand. I used to  believe in this statement in school because in that environment it was somewhat true. We programmed alot with C and somehow the praxis when teaching C (maybe because of its heritage as an old school language) is to use short and abstract variable names. It seems like the more theoretical a subject is, the worse the code is. For instance, let us take a look at the wikipedia page for [Merge sort](https://en.wikipedia.org/wiki/Merge_sort), it is interestingly common to use bad variable names such as j, B, i1, A and crowd the code with comments.
 
 {% highlight c %}
-
 //  left half is A[iBegin :iMiddle-1]
 // right half is A[iMiddle:iEnd-1   ]
 TopDownMerge(A[], iBegin, iMiddle, iEnd, B[])
@@ -36,7 +35,6 @@ TopDownMerge(A[], iBegin, iMiddle, iEnd, B[])
             i1 = i1 + 1;    
     } 
 }
-
 {% endhighlight %}
 
 It makes sense to use general variable names in cases like this, because the purpose is to teach an algorithm, not how to write clean code. The problem is, that if this is the only thing students see they start to write similiar code. And when the code is abstract and hard to understand, it also makes sense to write comments that explain what is happening at a higher abstraction level. To make matters worse, we were all taught to write loards of comments in our code, so much that we even failed our assignments if they were not *"properly commented"*.
