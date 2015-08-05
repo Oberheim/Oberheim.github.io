@@ -178,7 +178,12 @@ Do you agree at this point that comments are a code smell? I do realize that eve
 
 So given the time frame to write the code, if by flipping all the stones you still do not feel confident enough to leave the code without an explanatory comment, you should rightfully feel bad. You failed to express yourself with your craft, but at least you know it is bad and might come back some day to fix it.
 
+#Update
+I just wanted to **clarify** a point I feel some of the readers are missing. I am by no means claiming that you should never write comments, it is obviously pretty easy to figure out an edge case which countradicts my thesis. Where not writing a comment would be plain stupid. If you for instance:
+- Find a bug in .NET 3.5 and implement an obscure work around, write a comment! Otherwize someone might remove it because it looks like bad code.
+- You make a complicated implementation, perhaps because of performance reasons that might be extremely hard to understand, do not hesitate to write a comment!
 
+The point is, all we strive for is to make the code more readable and understandable, if it requires a comment, go for it! **But it should not be an excuse for bad code.**
 
 ####Sources
 [^1]:(Jeff Atwood, Code Tells You How, Comments Tell You Why, *Coding Horror*, 2006, [URL](http://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/), (accessed 05 August 2015))
