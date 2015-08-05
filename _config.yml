@@ -12,4 +12,4 @@ full_name: Alexander Heimonen
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+highlighter: pygments
