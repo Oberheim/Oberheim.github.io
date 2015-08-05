@@ -131,22 +131,17 @@ Dave Thomas also made the same observation in Pragmatic Programmer:
 
 *(Andrew Hunt, David Thomas. Pragmatic Programmer: From Journeyman to Master, Adison Wesley Professional, 1999)*
 
-So my point is that most programmers that come from school are vivid commenters and therefore need to be convinced or taught these ideas. 
+I also did some digging in one of my favourite books, Code Complete to see what Steve McConleys view on commenting code is, and he somewhat agrees:
 
-#nått skit
-The above code snippet is obviously in itself not bad code, what I mean is that with a bit of refactoring the comments could be made obsolete. 
+>*Comments are used to explain difficult code*. Comments have an important role to play, but they should not be used as a crutch to explain bad code. The age-old wisdom is dead-on: "Don't document bad code - rewrite it" (Kernighan and Plauger 1978). (Code Complete)
 
+If you have read anything he has written you know how focused he is on writing good quality code, but obviously we do not live in a world without stress and tight deadlines. So we write bad code because it is faster, but we should at least feel bad when we do it.
 
+So my point is that most programmers are taught from the beginning to become vivid commenters and therefore need to be convinced or taught these ideas.
 
-A pretty common discussion I participate in is the existential question about whether we should comment our code or not. I think encouraging comments is a really bad idea and actually leads to various code smells and worse code quality than uncommented code. I'll start of the discussion with a pretty obvious use case of bad comments.
+#But we write comments anyway
+Do you agree at this point that comments are indeed bad and a code smell? However, we can have our pragmatic views and principles, but only a fool would skip them alltogether. We live in a world with loads of stress and tight deadlines, the code we write is not always perfect and rightfully so, sometimes it is more important to ship on time. Perhaps my favorite quote about the subject is from Clean Code:
 
-`bad code example`
+>The proper use of comments is to compensate for our failure to express ourself in code. Note that I used the word *failure*. I meant it. Comments are always failures.
 
-
-
-
-Arbetstitel: **Why not commenting leads to better source code / Skipping comments leads to source code of higher quality**
-- kör på idén att lösa kommentarer med refaktorisering vilket i sin tur tvingar användaren att koda enligt endast-ett-syfte per metod principen (DRY - don't repeat yourself).
-- Kommentarer åldras på ett annat sätt än koden
-- folk uppdaterar inte kommentarer
-- endast okej i externt dokumentationssyfte (javadoc osv)
+So given the time frame to write the code, if by flipping all the stones you still do not feel confident enough to leave the code without an explanatory comment, you should rightfully feel bad. You failed to express yourself with your craft, but at least you can come back later and refactor it, right?
