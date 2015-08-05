@@ -8,7 +8,7 @@ draft: true
 published: true
 ---
 
-![Some really bad code]({{ site.url }}/_assets/bad_code.png)
+![Some really bad code](/_assets/images/bad_code.png)
 
 #Intro (sammanfattning)
 
