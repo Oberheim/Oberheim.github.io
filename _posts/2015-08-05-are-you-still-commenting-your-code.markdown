@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Skipping comments leads to higher quality code"
-date:   2015-08-04 17:00:00
+date:   2015-08-05 18:00:00
 categories: Comments
 comments: true
 draft: true
