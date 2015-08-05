@@ -8,6 +8,8 @@ draft: true
 published: true
 ---
 
+![Some really bad code]({{ site.url }}/_assets/bad_code.png)
+
 #Intro (sammanfattning)
 
 #Varför jag tycker illa om kommentarer
