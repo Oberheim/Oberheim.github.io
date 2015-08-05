@@ -9,12 +9,12 @@ draft: true
 
 <img src="https://github.com/Oberheim/oberheim.github.io/raw/master/_assets/images/bad_code.png" alt="Some really bad code" style="max-width: 100%;height:auto;" />
 
-Every now and then the discussion of whether or not we should write comments in our code arises. I am a firm believer of that comments are bad and should be avoided at all cost. Here is why:
+Every now and then I find myself in the discussion of whether we should use comments in our code or not. I am a firm believer of that comments are bad and should be avoided at all cost. Here is why:
 
 - **Commenting code violates the [DRY principle](https://en.wikipedia.org/wiki/Don't_repeat_yourself).** By writing comments you are essentially duplicating what already is written in code. The comments will inevitably become out of date as the code evolves. Either by developers who do not bother to update the comments, or simply do not understand the consequences of a change well enough to update the comments.
 - **Comments can be plain wrong!** People use comments to explain what code does on a higher abstraction level, this could be because the code is really complicated (read: bad) so commenting it is justified to make the code more readable. There are however no guarantees that that the comments are correct, *the only 100% correct description of what the code does is the code itself.*
 
-A pretty common counter argument I hear, even written by Jeff Atwood (the author of [Coding horror](http://blog.codinghorror.com/)) itself, is: 
+A pretty common counter argument I receive, which Jeff Atwood (the author of [Coding horror](http://blog.codinghorror.com/)) nicely put into words, is: 
 
 >No matter how simple, concise, and clear your code may end up being, it's impossible for code to be completely self-documenting. Comments can never be replaced by code alone.[^1]
 
