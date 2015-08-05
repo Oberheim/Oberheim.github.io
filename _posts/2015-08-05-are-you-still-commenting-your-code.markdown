@@ -8,6 +8,8 @@ draft: true
 published: true
 ---
 
+<img src="https://github.com/Oberheim/oberheim.github.io/raw/master/_assets/images/bad_code.png" alt="Some really bad code" style="max-width: 100%;height:auto;" />
+
 ![Some really bad code](/_assets/images/bad_code.png)
 
 #Intro (sammanfattning)
