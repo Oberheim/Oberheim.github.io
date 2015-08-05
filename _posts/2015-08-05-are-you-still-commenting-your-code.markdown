@@ -39,28 +39,30 @@ Yes! How hard can it be? Well, I might as well ask how hard can it be to refacto
 Not only do we now have a reusable method for reversing strings, there is also no doubt what the code is doing.
 
 #Techniques to replace comments
-I digged up some code I myself wrote a few years ago which we can analyze for this purpose. 
+I digged up some code I myself wrote a few years ago (it was actually written in objective-c for an iPhone application, but I rewrote it as C# now to save horizontal space) which we can analyze for this purpose. 
 
-{% highlight objective-c %}
+{% highlight c# %}
 
-    - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-        
+    public void didUpdateLocation(Location newLocation, Location oldLocation)
+    {
         //Check if the horisontal accuracy indicates an invalid measurement
-        if(newLocation.horizontalAccuracy < 0) {
+        if(newLocation.horizontalAccuracy < 0) 
+        {
             return;
         }
+
         //Test the measurement to see if it is more accurate than the previous measurement
-        if(self.bestEffortAtLocation == nil || self.bestEffortAtLocation.horizontalAccuracy > newLocation.horizontalAccuracy) {
+        if(BestEffortAtLocation == null || BestEffortAtLocation.horizontalAccuracy > newLocation.horizontalAccuracy) 
+        {
             //Store location as best effort
-            self.bestEffortAtLocation = newLocation;
+            bestEffortAtLocation = newLocation;
             //Test the measurement to see if it meets the desired accuracy
-            if(newLocation.horizontalAccuracy <= self.locationManager.desiredAccuracy) {
-                //We have a measurement that meets our requirements and can stop updating the location (to save battery)
-                [self.locationManager stopUpdatingLocation];
-                [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(stopUpdatingLocation:) object:nil];
-                
-                NSDictionary *dict = [NSDictionary dictionaryWithObject:newLocation forKey:@"LOCATION"];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"locationFound" object:self userInfo:dict];
+            if(newLocation.horizontalAccuracy <= LocationManager.desiredAccuracy) 
+            {
+                //We have a measurement that meets our requirements and can stop updating the location
+                LocationManager.StopUpdatingLocation();
+                CurrentLocation = newLocation;
+                PostNotification(Event.LocationFound)
             }
         }
     }
@@ -70,34 +72,35 @@ I digged up some code I myself wrote a few years ago which we can analyze for th
 - Some comments are plain unecessary and can be removed:
 
     //Store location as best effort
-    self.bestEffortAtLocation = newLocation;
+    bestEffortAtLocation = newLocation;
 
 - But most of all, comments are easily removed by refactoring the code for readability and separating, the rpecious method could look like the following:
  
-{% highlight objective-c %}
+{% highlight c# %}
 
-    - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-        NSLog(@"didUpdateToLocaation lat: %.2f long: %.2f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
-        
-        if(IsInvalidMeasurement(newLocation)) {
+    public void didUpdateLocation(Location newLocation, Location oldLocation)
+    {
+        if(IsInvalidMeasurement(newLocation)) 
+        {
             return;
         }
 
-        if(IsMoreAccurate(newLocation, self.bestEffortAtLocation))
-            self.bestEffortAtLocation = newLocation;
+        if(IsMoreAccurate(newLocation, BestEffortAtLocation)) 
+        {
+            bestEffortAtLocation = newLocation;
             
-            if(newLocation.horizontalAccuracy <= self.locationManager.desiredAccuracy) {
-                [self.locationManager stopUpdatingLocation];
-                [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(stopUpdatingLocation:) object:nil];
-                
-                NSDictionary *dict = [NSDictionary dictionaryWithObject:newLocation forKey:@"LOCATION"];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"locationFound" object:self userInfo:dict];
+            if(newLocation.horizontalAccuracy <= LocationManager.desiredAccuracy) 
+            {
+                LocationManager.StopUpdatingLocation();
+                CurrentLocation = newLocation;
+                PostNotification(Event.LocationFound)
             }
         }
     }
     
     {% endhighlight %}
     
+I think the code is self-explanatory.
 
 #If comments are so bad, why do people still use them?
 In the academia I was taught that code without comments is bad because it is hard to read and understand. I used to  believe in this statement in school because in that environment it was somewhat true. We programmed alot with C and somehow the praxis when teaching C (maybe because of its heritage as an old school language) is to use short and abstract variable names. It seems like the more theoretical a subject is, the worse the code is. For instance, let us take a look at the wikipedia page for [Merge sort](https://en.wikipedia.org/wiki/Merge_sort), it is interestingly common to use bad variable names such as j, B, i1, A and crowd the code with comments.
