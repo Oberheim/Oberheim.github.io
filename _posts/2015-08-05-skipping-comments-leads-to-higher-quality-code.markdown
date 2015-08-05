@@ -180,6 +180,7 @@ So given the time frame to write the code, if by flipping all the stones you sti
 
 #Update
 I just wanted to **clarify** a point I feel some of the readers are missing. I am by no means claiming that you should never write comments, it is obviously pretty easy to figure out an edge case which countradicts my thesis. Where not writing a comment would be plain stupid. If you for instance:
+
 - Find a bug in .NET 3.5 and implement an obscure work around, write a comment! Otherwize someone might remove it because it looks like bad code.
 - You make a complicated implementation, perhaps because of performance reasons that might be extremely hard to understand, do not hesitate to write a comment!
 
