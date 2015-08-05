@@ -5,7 +5,7 @@ date:   2015-08-04 17:00:00
 categories: Comments
 comments: true
 draft: true
-published: false
+published: true
 ---
 
 #Intro (sammanfattning)
