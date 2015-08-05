@@ -74,7 +74,22 @@ I digged up some code I myself wrote a few years ago (it was actually written in
     //Store location as best effort
     bestEffortAtLocation = newLocation;
 
-- But most of all, comments are easily removed by refactoring the code for readability and separating, the rpecious method could look like the following:
+- But most of all, comments are easily removed by refactoring the code for readability by for instance:
+
+    //Check if the horisontal accuracy indicates an invalid measurement
+    if(newLocation.horizontalAccuracy < 0) 
+    {
+        return;
+    }
+    
+    Becomes
+    
+    if(IsInvalidMeasurement(newLocation)) 
+    {
+        return;
+    }
+ 
+The previous method could look like the following:
  
 {% highlight c# %}
 
