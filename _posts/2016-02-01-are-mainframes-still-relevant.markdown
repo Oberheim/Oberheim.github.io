@@ -34,4 +34,3 @@ Ciber Momentum is a transformation accelerator that rapidly automates code for l
 [^1]:(Brian Bloom, COBOL and the mainframe: big business and big money, 2013, [URL](http://blog.stafflink.ca/recruiting-tips/cobol-and-the-mainframe-big-business-and-big-money))
 [^2]:(Stackexchange, Why aren't young programmers interested in mainframes?, 2012-2015, [URL](http://programmers.stackexchange.com/questions/75486/why-arent-young-programmers-interested-in-mainframes))
 [^3]:(Brian Bloom, The future of COBOL: Why it won’t go away soon, 2012, [URL](http://www.itworldcanada.com/article/the-future-of-cobol-why-it-wont-go-away-soon/45722))
-
