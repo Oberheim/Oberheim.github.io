@@ -4,6 +4,7 @@ title: "Why everything you do should be on GitHub"
 date: 2015-07-29 16:27:46
 categories: GitHub
 comments: true
+author: Alexander Heimonen
 ---
 I started studying computer science in 2010 and noticed that some of the students were actively using GitHub for their version control needs. I finally created my own account in September 2011 and thought that I was horribly late to the party, I had used various SVN based solutions for my school projects by then and finally decided that I should switch. However, I already had my workflows for SVN and TFS and never completed the transition. Then I started to work full time within the .NET eco system and the company used a locally hosted TFS for version control. So I stayed put with my Visual Studio Online account and never thought more about it.
 

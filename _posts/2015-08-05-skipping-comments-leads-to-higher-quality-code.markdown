@@ -5,6 +5,7 @@ date: 2015-08-05 19:00:00
 categories: Comments
 comments: true
 draft: true
+author: Alexander Heimonen
 ---
 
 <img src="https://github.com/Oberheim/oberheim.github.io/raw/master/_assets/images/bad_code.png" alt="Some really bad code" style="max-width: 100%;height:auto;" />
