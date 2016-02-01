@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Why everything you do should be on GitHub"
-date:   2015-07-29 16:27:46
+title: "Why everything you do should be on GitHub"
+date: 2015-07-29 16:27:46
 categories: GitHub
 comments: true
 ---
