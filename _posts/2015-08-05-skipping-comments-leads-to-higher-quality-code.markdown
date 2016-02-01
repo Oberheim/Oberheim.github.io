@@ -4,7 +4,6 @@ title: "Skipping comments leads to higher quality code"
 date: 2015-08-05 19:00:00
 categories: Comments
 comments: true
-draft: true
 author: Alexander Heimonen
 ---
 
