@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Are Mainframes Still Relevant?"
-date:   2016-02-01 14:44:46
+title: "Are Mainframes Still Relevant?"
+date: 2016-02-01 14:44:46
 categories: Mainframe
 author: Alexander Heimonen
 comments: true
