@@ -4,7 +4,9 @@ title:  "How long will Mainframes be around?"
 date:   2016-02-01 14:44:46
 categories: COBOL, Mainframes, programming
 comments: true
+draft: true
 ---
+
 I am in an interesting situation at work where I face two realities, on one hand I work with a customer which entire IT infrastructure is based on an old IBM mainframe and on the other hand I am involved in a gigantic project called Ciber Momentum which purpose is to accelerate application transformation to modern languages. In other words, to help get rid of mainframes. I and my team have discussed several times how important it is for our customer to get rid of the mainframe since every day all integrations we make increase the technical debt the company accumulates. So basically they are making the migration to a new system harder every day and the reality is that one day, they have to make the transition in order to stay relevant. Perhaps this stubbornness is what makes old companies to eventually die and gives an opportunity to new startups, with modern codebases to surpass them since they have less technical debt and can therefore change more rapidly. Another problem, as I see it, is that a modernization project is unavoidably extremely expensive with no short term return of investment which by no means helps the management (which necessarily does not understand the technical reasoning) hard to make the decision to launch such a huge project.
 
 ##Let us take a look at where these old mainframes are today
@@ -20,6 +22,7 @@ Developers always fear to become obsolete, it's hard enough to stay relevant as 
 Let us say that you are an aspiring young developer really interested in becoming a mainframe programmer, how do you get started? I would guess that the easiest way to learn is on the job, but that would require for you to get hired as a long term investment for the company. A lot of programmers code at home on their PC without access to a mainframe, but it seems like there is a [virtual mainframe]http://www.hercules-390.org/) available, even though it's a daunting task, one could set up.
 
 So the quantity of programmers with the required skillset is declining and hence the cost to keep the mainframes running is increasing. Even though COBOL is dying it is estimated that it its best before date is in the late 2020:s or 2030:s.[^2] How big is the hurry to replace these applications? One reason they are still around is that they simply work and do that well, so should they be modernized just because they are written in COBOL? 
+
 >“For the most part, the COBOL programs that are out there are the kinds that take data from a database somewhere, crunch them and print out reports on a big printer somewhere, or print off cheques, or something like that. It’s the real pretty straightforward applications that don’t have a lot of technical complexity, that haven’t changed. Like, if you have employee records somewhere and you have a payroll run to run, that whole process hasn’t changed that much since the 1950s. That’s why companies haven’t changed the stuff. (Evan Weaver, chair of the School of Information and Communications Technology at Toronto’s Seneca College.[^2])"
 
 With that said, there are still loads of mainframes that handle a big part of a company's business logic and that is a reason to get worried. It is not hard to argue that it is a lot easier to manage a modern application that is responsive to your business needs and actually helps you innovate, instead of maintaining an old system with legacy code and complicated release routines. The pace of business is constantly accelerating and so is the pace of technology
@@ -29,5 +32,5 @@ With that said, there are still loads of mainframes that handle a big part of a 
 Ciber Momentum is a transformation accelerator that rapidly automates code for legacy modernization. Using Ciber Momentum, up to 85% of the total lines of code for a project can be generated. It does not rely on an army of expensive programmers that can contribute to risk and poor quality, it does not do a like-for-like translation but instead transforms it to a modern software architecture with a modern user experience. Do not let your competition surpass you by sticking to your legacy solution, instead, move at the speed of business at [http://momentum.ciber.com/](http://momentum.ciber.com/).
 
 ####Sources
-[^1](AUTHOR, TITLE, YEAR, [URL](http://blog.stafflink.ca/recruiting-tips/cobol-and-the-mainframe-big-business-and-big-money))
-[^2](AUTHOR, TITLE, YEAR, [URL](http://www.itworldcanada.com/article/the-future-of-cobol-why-it-wont-go-away-soon/45722))
+[^1]:(AUTHOR, TITLE, YEAR, [URL](http://blog.stafflink.ca/recruiting-tips/cobol-and-the-mainframe-big-business-and-big-money))
+[^2]:(AUTHOR, TITLE, YEAR, [URL](http://www.itworldcanada.com/article/the-future-of-cobol-why-it-wont-go-away-soon/45722))
