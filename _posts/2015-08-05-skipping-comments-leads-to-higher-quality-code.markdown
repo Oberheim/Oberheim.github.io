@@ -171,7 +171,7 @@ There you have it again, if you have read anything he has written you know how f
 
 So my point is that most programmers are taught from the beginning to become vivid commenters and therefore need to be convinced or taught these ideas.
 
-#B ut we write comments anyway
+# But we write comments anyway
 Do you agree at this point that comments are a code smell? I do realize that even though we have our pragmatic views and principles about coding practices, only a fool would follow them blindly. We live in a world with loads of stress and tight deadlines, the code we write is not always perfect and rightfully so, sometimes it is more important to ship on time than to write perfect code. Perhaps my favorite quote about this subject is from Clean Code:
 
 >The proper use of comments is to compensate for our failure to express ourselves in code. Note that I used the word *failure*. I meant it. Comments are always failures.
@@ -186,7 +186,7 @@ I just wanted to **clarify** a point I feel some of the readers are missing. I a
 
 The point is, all we strive for is to make the code more readable and understandable, if it requires a comment, go for it! **But it should not be an excuse for bad code.**
 
-####Sources
+#### Sources
 [^1]:(Jeff Atwood, Code Tells You How, Comments Tell You Why, *Coding Horror*, 2006, [URL](http://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/), (accessed 05 August 2015))
 
 [^2]:(Andrew Hunt, David Thomas. Pragmatic Programmer: From Journeyman to Master, Adison Wesley Professional, 1999)
