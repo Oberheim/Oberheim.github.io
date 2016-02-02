@@ -39,7 +39,7 @@ Yes! How hard can it be? Well, I might as well ask how hard can it be to refacto
 
 Not only do we now have a reusable method for reversing strings, there is also no doubt what the code is doing.
 
-#Techniques to replace comments
+# Techniques to replace comments
 I dug up some code I myself wrote a few years ago (it was actually written in objective-c for an iPhone application, but I rewrote it as C# now to save horizontal space) which we can analyze for this purpose. 
 
 {% highlight c# %}
@@ -133,7 +133,7 @@ public void DidUpdateLocation(Location newLocation, Location oldLocation)
     
 Don't you agree that this is easier to read?
 
-#If comments are so bad, why do people still use them?
+# If comments are so bad, why do people still use them?
 In the academia I was taught that code without comments is bad because it is hard to read and understand. I used to believe in this statement in school because in that environment it was somewhat true. We programmed a lot with C and somehow the praxis when teaching C (maybe because of its heritage as an old school language) is to use short and abstract variable names. It seems like the more theoretical a subject is, the worse the code is. For instance, let us take a look at the Wikipedia page for [Merge sort](https://en.wikipedia.org/wiki/Merge_sort), it is interestingly common to use bad variable names such as j, B, i1, A and crowd the code with comments.
 
 {% highlight c %}
@@ -171,14 +171,14 @@ There you have it again, if you have read anything he has written you know how f
 
 So my point is that most programmers are taught from the beginning to become vivid commenters and therefore need to be convinced or taught these ideas.
 
-#But we write comments anyway
+#B ut we write comments anyway
 Do you agree at this point that comments are a code smell? I do realize that even though we have our pragmatic views and principles about coding practices, only a fool would follow them blindly. We live in a world with loads of stress and tight deadlines, the code we write is not always perfect and rightfully so, sometimes it is more important to ship on time than to write perfect code. Perhaps my favorite quote about this subject is from Clean Code:
 
 >The proper use of comments is to compensate for our failure to express ourselves in code. Note that I used the word *failure*. I meant it. Comments are always failures.
 
 So given the time frame to write the code, if by flipping all the stones you still do not feel confident enough to leave the code without an explanatory comment, you should rightfully feel bad. You failed to express yourself with your craft, but at least you know it is bad and might come back some day to fix it.
 
-#Update
+# Update
 I just wanted to **clarify** a point I feel some of the readers are missing. I am by no means claiming that you should never write comments, it is obviously pretty easy to figure out an edge case which countradicts my thesis. Where not writing a comment would be plain stupid. If you for instance:
 
 - Find a bug in .NET 3.5 and implement an obscure work around, write a comment! Otherwise someone might remove it because it looks like bad code.
@@ -188,5 +188,7 @@ The point is, all we strive for is to make the code more readable and understand
 
 ####Sources
 [^1]:(Jeff Atwood, Code Tells You How, Comments Tell You Why, *Coding Horror*, 2006, [URL](http://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/), (accessed 05 August 2015))
+
 [^2]:(Andrew Hunt, David Thomas. Pragmatic Programmer: From Journeyman to Master, Adison Wesley Professional, 1999)
+
 [^3]:(Steve McConnell. Code Complete: A Practical Handbook of Software Construction, 2nd Edition, Microsoft Press, 2004)
