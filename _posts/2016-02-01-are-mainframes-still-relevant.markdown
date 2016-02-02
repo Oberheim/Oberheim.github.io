@@ -34,6 +34,7 @@ Ciber Momentum is a transformation accelerator that rapidly automates code for l
 <img src="https://github.com/Oberheim/oberheim.github.io/raw/master/_assets/images/Ciber-Momentum-Transformation-Accelerator.jpg" alt="Ciber Momentum for Application Modernization" style="max-width: 100%;height:auto;" />
 
 ####Sources
+
 [^1]:(Brian Bloom, COBOL and the mainframe: big business and big money, 2013, [URL](http://blog.stafflink.ca/recruiting-tips/cobol-and-the-mainframe-big-business-and-big-money), (accessed 02 February 2016))
 
 [^2]:(Stack exchange, Why aren't young programmers interested in mainframes?, 2012-2015, [URL](http://programmers.stackexchange.com/questions/75486/why-arent-young-programmers-interested-in-mainframes), (accessed 02 February 2016))
