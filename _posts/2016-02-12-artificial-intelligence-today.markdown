@@ -5,8 +5,6 @@ date: 2016-02-12 12:33:00
 categories: Programming
 author: Alexander Heimonen
 comments: true
-tags:
-- draft
 ---
 
 >“Massive transformation is on the horizon. Jobs, companies, and entire industries will be reimagined.”
