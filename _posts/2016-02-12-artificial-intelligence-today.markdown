@@ -6,10 +6,6 @@ categories: Programming
 author: Alexander Heimonen
 comments: true
 ---
-
->“Massive transformation is on the horizon. Jobs, companies, and entire industries will be reimagined.”
-- Paul Roetzer, CEO @PR 20/20
-
 Artificial Intelligence has been around since beginning of computing and was founded as an academic discipline in 1956, and ever since then, the scientific community have thought that they are close to a real breakthrough every decade or so. Already in the 40's research on neurology found out that the human brain is a network of neurons that fires in all or nothing pulses, and *Alan Turing* suggested that it might be possible to build an electronic brain. In 1951, a 24 years old graduate student, *Marvin Minsky* built the first neural net machine, also known as *SNARC*, which is refered to as the first artificial self-learning machine.
 
 But if they already had the right ideas back then, why don’t we have personal service robots at home already?
@@ -24,6 +20,9 @@ So how afraid should we be? I think that there is some substance to their concer
 They warn us about what they call *Strong Artifical Intelligence*. AI that is capable of thinking by itself, perhaps with a conciousness and ability to make decisions. 	
 Some scientists think that in 2025 we will have an AI that is equally as intelligent as a human being and by 2040 one single AI instance will be as intelligent as the entire human race collectively. The AI problem can be divided into 2 subproblems, the first one is to figure out how to create intelligence, the second one is how to give the AI safe constraints or the same values as humans. I say that if we figre out problem 2 first, we’re safe.
 But what happens is just speculation, but I agree that the unknown can be daunting.
+
+>“Massive transformation is on the horizon. Jobs, companies, and entire industries will be reimagined.”
+- Paul Roetzer, CEO @PR 20/20
 
 ### Artificial Intelligence Today
 The Silicon Valley giants like Google and Facebook are currently riding on top of the AI wave of popularity. Google bought the secretive AI company DeepMind for 400 million dollars and are currently experimenting with the tech. Facebook recently unveiled their photo app called Moments that uses AI to recognize a person in the picture. Then we all know about Google’s fully automated self driving cars capable of driving a million miles without an accident. Your android device knows when you’re on your way to work and informs you if there’s a traffic jam on the way or if your buss is late. If i search the net for a weekend trip to London both Facebook and the rest of the net gets filled with travelling ads. AI technology is literally everywhere and I bet that tomorrows fortune 500 companies follow the formula: 
@@ -62,4 +61,5 @@ Personally I think that alot of these concepts are easy enough to understand and
 I will give a real world example of something I have done. I worked for one of Swedens biggest datacom and telecom companies, their billing and customer data was in an economy system and their associated costs for their broadband network was in another specialized system. However, they had no connection between each customer and the associated cost for the connection and to make matters worse, there were tens of thousands of entities to be matched, so it could not be done manually. No converntional script could do it either because most of the data was written by hand and therefore full of spelling errors and no specific patterns to match since they adjusted the data based on customer billing needs. So me and a former collegue made an AI that made an educated guess for each entity. The program could match about 90% in one go and the remaining 10% was associated with some sort of error, maybe a resource was unmatchable because there was no customer utilizing it!
 
 [^1]:(Kevin Kelly, The Three Breakthroughs That Have Finally Unleashed AI on the World, 2014, [URL](http://www.wired.com/2014/10/future-of-artificial-intelligence/), (accessed 12 February 2016))
+
 [^2]:(Alexander Mordvintsev, Inceptionism: Going Deeper into Neural Networks, 2015, [URL](http://googleresearch.blogspot.se/2015/06/inceptionism-going-deeper-into-neural.html), (accessed 12 February 2016))
