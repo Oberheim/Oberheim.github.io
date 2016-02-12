@@ -5,6 +5,8 @@ date: 2016-02-12 12:33:00
 categories: Programming
 author: Alexander Heimonen
 comments: true
+tags:
+- draft
 ---
 Artificial Intelligence has been around since beginning of computing and was founded as an academic discipline in 1956, and ever since then, the scientific community have thought that they are close to a real breakthrough every decade or so. Already in the 40's research on neurology found out that the human brain is a network of neurons that fires in all or nothing pulses, and *Alan Turing* suggested that it might be possible to build an electronic brain. In 1951, a 24 years old graduate student, *Marvin Minsky* built the first neural net machine, also known as *SNARC*, which is refered to as the first artificial self-learning machine.
 
