@@ -57,7 +57,7 @@ The thing is that Machine Learning does not have to be that complicated. A reall
 >”It will be more about the sound. You’ll be able to search by the content of the music instead of just text information associated with it.”
 – Nicola Montecchio, head of Deep Learning @Spotify
 
-### Developer
+### Conclusion
 Personally I think that alot of these concepts are easy enough to understand and for us to stay relevant as developers we need to start investing in these skill sets. We are moving more and more towards a Big Data world and effective analyzis techniques are essential in order to stay competitive, and imagine what user experiences we can create in our applications using this technology!
 
 I will give a real world example of something I have done. I worked for one of Swedens biggest datacom and telecom companies, their billing and customer data was in an economy system and their associated costs for their broadband network was in another specialized system. However, they had no connection between each customer and the associated cost for the connection and to make matters worse, there were tens of thousands of entities to be matched, so it could not be done manually. No converntional script could do it either because most of the data was written by hand and therefore full of spelling errors and no specific patterns to match since they adjusted the data based on customer billing needs. So me and a former collegue made an AI that made an educated guess for each entity. The program could match about 90% in one go and the remaining 10% was associated with some sort of error, maybe a resource was unmatchable because there was no customer utilizing it!
