@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Artificial Intelligence Today"
-date: 2016-02-14 15:26:00
-categories: Programming
+date: 2016-02-14 00:00:00
+categories: ai
 author: Alexander Heimonen
 comments: true
 ---
@@ -62,9 +62,9 @@ Personally I think that a lot of these concepts are easy enough to understand an
 
 I will give a real world example of something I have done. I worked for one of Sweden's biggest datacom and telecom companies, their billing and customer data was in an economy system and their associated costs for their broadband network was in another specialized system. However, they had no connection between each customer and the associated cost for the connection and to make matters worse, there were tens of thousands of entities to be matched, so it could not be done manually. No conventional script could do it either because most of the data was written by hand and therefore full of spelling errors and no specific patterns to match since they adjusted the data based on customer billing needs. So me and a former colleague made an AI that made an educated guess for each entity. The program could match about 90% in one go and the remaining 10% was associated with some sort of error, maybe a resource was unmatchable because there was no customer utilizing it!
 
-[^1]:(Kevin Kelly, The Three Breakthroughs That Have Finally Unleashed AI on the World, 2014, [URL](http://www.wired.com/2014/10/future-of-artificial-intelligence/), (accessed 12 February 2016))
+[^1]:(Kevin Kelly, The Three Breakthroughs That Have Finally Unleashed AI on the World, 2014, [URL](http://www.wired.com/2014/10/future-of-artificial-intelligence/), (accessed 14 February 2016))
 
-[^2]:(Alexander Mordvintsev, Inceptionism: Going Deeper into Neural Networks, 2015, [URL](http://googleresearch.blogspot.se/2015/06/inceptionism-going-deeper-into-neural.html), (accessed 12 February 2016))
+[^2]:(Alexander Mordvintsev, Inceptionism: Going Deeper into Neural Networks, 2015, [URL](http://googleresearch.blogspot.se/2015/06/inceptionism-going-deeper-into-neural.html), (accessed 14 February 2016))
 
 [^3]:(Michael Nielsen, Neural Networks and Deep Learning, 2016 [URL](http://neuralnetworksanddeeplearning.com/), (accessed 14 February 2016))
 
