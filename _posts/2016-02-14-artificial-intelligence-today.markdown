@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Artificial Intelligence Today"
-date: 2016-02-14 15:26:00
-categories: Programming
+date: 2016-02-14 00:00:00
+categories: ai
 author: Alexander Heimonen
 comments: true
 ---
