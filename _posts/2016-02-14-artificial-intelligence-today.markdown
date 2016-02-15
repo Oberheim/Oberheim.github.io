@@ -25,7 +25,7 @@ But what happens is just speculation, but I agree that the unknown can be daunti
 - Paul Roetzer, CEO @PR 20/20
 
 ### Artificial Intelligence Today
-The Silicon Valley giants like Google and Facebook are currently riding on top of the AI wave of popularity. Google bought the secretive AI company DeepMind for 400 million dollars and are currently experimenting with the tech. Facebook uses AI to recognize peoples' faces in pictures.[^5] Then we all know about Google’s fully automated self-driving cars capable of driving a million miles without an accident. Your android device knows when you’re on your way to work and informs you if there’s a traffic jam on the way or if your bus is late. If I search the net for a weekend trip to London both Facebook and the rest of the net gets filled with travelling ads. AI technology is literally everywhere and I bet that tomorrows fortune 500 companies follow the formula: 
+The Silicon Valley giants like Google and Facebook are currently riding on top of the AI wave of popularity. Google bought the secretive AI company DeepMind for 400 million dollars and are currently experimenting with the tech. Facebook uses AI to recognize peoples' faces in pictures.[^5] Then we all know about Google’s fully automated self-driving cars capable of driving a million miles without an accident. Your Android device knows when you’re on your way to work and informs you if there’s a traffic jam on the way or if your bus is late. If I search the net for a weekend trip to London both Facebook and the rest of the net gets filled with travelling ads. AI technology is literally everywhere and I bet that tomorrows fortune 500 companies follow the formula: 
 
 >Take X, add AI.
 
