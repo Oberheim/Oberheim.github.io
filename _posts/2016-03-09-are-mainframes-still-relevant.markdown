@@ -1,12 +1,10 @@
 ---
 layout: post
 title: "Are Mainframes Still Relevant?"
-date: 2016-02-01 14:44:46
+date: 2016-03-09 21:19:15
 categories: Mainframe
 author: Alexander Heimonen
 comments: true
-tags:
-- draft
 ---
 I am in an interesting situation at work where I face two realities, on one hand I work with a customer which entire IT infrastructure is based on an old IBM mainframe and on the other hand I am involved in a huge project called [Ciber Momentum](http://momentum.ciber.com/) which purpose is to accelerate application transformation to modern languages. In other words, to help get rid of legacy mainframe applications. Me and my team have discussed several times how important it is for our customer to modernize their codebase, since every day all integrations and development we make increase the technical debt the company accumulates. They are making the migration to a new system harder by the day and the reality is that soon enough they have to make the transition in order to stay relevant. Perhaps this stubbornness is what makes established companies to become surpassed by new startups, with modern codebases and less technical debt enabling them to change more rapidly. Another problem is that traditional modernization projects are unavoidably expensive with no short term return of investment, which by no means helps the management (which necessarily does not understand the technical reasoning) hard to make the decision to launch such a huge project.
 
