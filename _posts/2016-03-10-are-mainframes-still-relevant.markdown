@@ -29,8 +29,6 @@ With that said, there are still loads of mainframes that handle a big part of a 
 ### Ciber Momentum
 Ciber Momentum is a transformation accelerator that rapidly automates code for legacy modernization. Using Ciber Momentum, up to 85% of the total lines of code for a project can be generated. It does not rely on an army of expensive programmers that can contribute to risk and poor quality, it does not do a like-for-like translation but instead transforms it to a modern software architecture with a modern user experience. Do not let your competition surpass you by sticking to your legacy solution, instead, move at the speed of business at [http://momentum.ciber.com/](http://momentum.ciber.com/).
 
-<img src="https://github.com/Oberheim/oberheim.github.io/raw/master/_assets/images/Ciber-Momentum-Transformation-Accelerator.jpg" alt="Ciber Momentum for Application Modernization" style="max-width: 100%;height:auto;" />
-
 #### Sources
 
 [^1]:(Brian Bloom, COBOL and the mainframe: big business and big money, 2013, [URL](http://blog.stafflink.ca/recruiting-tips/cobol-and-the-mainframe-big-business-and-big-money), (accessed 02 February 2016))
