@@ -2,7 +2,7 @@
 title: oberheim.github.io
 email: alexander.heimonen@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Alexander Heimonen is a .NET Consultant at [Squeed](http://www.squeed.com) and maintains this programming blog on his free time.
+  Alexander Heimonen is a .NET Consultant at Squeed and maintains this programming blog on his free time.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://oberheim.github.io" # the base hostname & protocol for your site
 twitter_username: Oberheimz
