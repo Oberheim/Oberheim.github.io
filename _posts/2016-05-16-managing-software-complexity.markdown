@@ -14,7 +14,8 @@ I have seen a lot of projects where simple fixes introduce multiple bugs, where 
 
 However, even though I am providing some pointers, the reader should keep in mind that complexity in one end could be simplicity in another end. There is no rule of thumb or a pragmatic way to always achieve simplicity and many times complexity is warranted. There are two terms to keep in mind here, *essential complexity* and *accidental complexity*, programming is not simple and the tasks our systems need to address are not inherently simple either, so a complex design would be warranted in order to minimize the growth of *accidental complexity*. 
 
-#Software Complexity
+# Software Complexity
+
 When we design software, what we essentially do is abstract real world problems into code, we need to create an exact model of reality since we need to determine precisely how the domain works. It is difficult to interface accurately with the complex real world, that is not only approximately correct but exactly correct. This increases the *essential difficulty* of the code, which needs to be designed in such a way that as the software grows, the *accidental complexity* does not get out of hand and the project remains maintainable and sufficiently easy to understand.[^1]
 
 The most essential technique to reduce complexity is to design programs in such a way that we can focus on one part at a time, as Dijsktra pointed out that no one's skull is really big enough to contain a modern computer program (Dijkstra 1972). The system needs to be split up in several well defined components, the most important being:
@@ -28,7 +29,7 @@ At this level the subsystem is divided into the most important classes or interf
 
 Now if the system is huge, a developer can focus on building one class at a time, or if the system is smaller the developer can focus on building a subsystem at a time. 
 
-#Keeping it Clean
+# Keeping it Clean
 
 Todays applications grow larger and larger and a fundamental shift has started to happen years ago, the biggest complexity in software is in the application design as a whole and not in the smaller parts. This makes it top priority for a programmer to write clean and well designed code that is easy to read. Software architecture is out of scope for this article, so I chose to focus on some guidelines to improve design, quality, readability and reduce complexity of code when designing and programming software:
 
