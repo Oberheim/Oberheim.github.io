@@ -62,5 +62,4 @@ All programmers are taught early to use design patterns, but surprisingly many d
 The message I wanted to deliver is to always think about the complexity in your code. It is hard to provide clear rules to follow, but as long as you keep the concept in mind you reflect over the impact on the complexity of your code. 
 
 #### Sources
-
 [^1]:(Steve McConnell. Code Complete: A Practical Handbook of Software Construction, 2nd Edition, Microsoft Press, 2004)
