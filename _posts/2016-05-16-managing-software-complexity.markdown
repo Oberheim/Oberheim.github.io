@@ -16,7 +16,7 @@ However, even though I am providing some pointers, the reader should keep in min
 
 # Software Complexity
 
-When we design software, what we essentially do is abstract real world problems into code, we need to create an exact model of reality since we need to determine precisely how the domain works. It is difficult to interface accurately with the complex real world, that is not only approximately correct but exactly correct. This increases the *essential difficulty* of the code, which needs to be designed in such a way that as the software grows, the *accidental complexity* does not get out of hand and the project remains maintainable and sufficiently easy to understand.[^1]
+When we design software, what we essentially do is abstract real world problems into code, we need to create an exact model of reality since we need to determine precisely how the domain works. It is difficult to interface accurately with the complex real world, that is not only approximately correct but exactly correct. This increases the *essential complexity* of the code, which needs to be designed in such a way that as the software grows, the *accidental complexity* does not get out of hand and the project remains maintainable and sufficiently easy to understand.[^1]
 
 The most essential technique to reduce complexity is to design programs in such a way that we can focus on one part at a time, as Dijsktra pointed out that no one's skull is really big enough to contain a modern computer program (Dijkstra 1972). The system needs to be split up in several well defined components, the most important being:
 
@@ -34,7 +34,7 @@ Now if the system is huge, a developer can focus on building one class at a time
 Todays applications grow larger and larger and a fundamental shift has started to happen years ago, the biggest complexity in software is in the application design as a whole and not in the smaller parts. This makes it top priority for a programmer to write clean and well designed code that is easy to read. Software architecture is out of scope for this article, so I chose to focus on some guidelines to improve design, quality, readability and reduce complexity of code when designing and programming software:
 
 - **Design for the maintenance programmer.** 
-Make your code and design self explanatory, try to imagine what questions the maintenance programmer would ask you about your code. 
+Make your code and design self explanatory, try to imagine what questions a maintenance programmer would ask you about your code. 
 
 - **Avoid clever code.**
 Unless you are writing code for devices with limited resources there is little to no need to do clever bit shifts or algorithms to reduce 5% of CPU load. With that being said, most programmers love to be clever, but when working with professional code we simply have to be able to control our urges. The big downfall in clever code is maintainability, problems can be incredibly hard to fix, or as one of the co-authors of the book *C Programming Language* put it: 
@@ -55,5 +55,8 @@ For any given class, minimize the amount of classes it needs to have knowledge o
 
 - **Think about your abstractions.**
 Well designed abstractions allow the programmer to focus on using an interface without needing knowledge or worrying about how it works internally, meaning that from a complexity point of view you can ignore irrelevant details. Programmers use abstractions at all levels of a system, however I find it fairly common to see classes with interfaces that define *how they work* instead of *what they do*. Keep implementation details hidden in private routines within the classes.
+
+- **Know your design patterns.**
+All programmers are taught early to use design patterns, but surprisingly many developers do not have a clear understanding or even knowledge about the most fundamental ones. Design patterns at their core are ready-made solutions to the most common problems encountered in programming and provide familiar abstractions easily recongized by other programmers. So if you do not have a firm understanding of for instance  Adapter, Bridge, Decorator, Facade, Factory method, Template method, Observor, Singleton and Strategy pattern, I strongly suggest you pick up a pattern book and start reading.
 
 [^1]:(Steve McConnell. Code Complete: A Practical Handbook of Software Construction, 2nd Edition, Microsoft Press, 2004)
