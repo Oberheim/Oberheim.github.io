@@ -47,4 +47,13 @@ Everyone has done it, more often early in their careers, but these bugs still ma
 - **Be pragmatic when you have to.**
 There are pragmatic ideas and rules to guide us in our decision making, there is no need to reinvent the wheel so standard practices exist to speed up programming. However, sometimes it is worth to give a second thought to some decisions so that they do not lead to more trouble along the way. 
 
+- **Louse coupling**
+Minimize the knowledge of connections among different components by e.g. using interfaces and good abstractions.
+
+- **Minimize fan-out**
+For any given class, minimize the amount of classes it needs to have knowledge of. Research shows that using more than seven classes within a class indicates that it may be overly complex.[^1]
+
+- **Think about your abstractions.**
+Well designed abstractions allow the programmer to focus on using an interface without needing knowledge or worrying about how it works internally, meaning that from a complexity point of view you can ignore irrelevant details. Programmers use abstractions at all levels of a system, however I find it fairly common to see classes with interfaces that define *how they work* instead of *what they do*. Keep implementation details hidden in private routines within the classes.
+
 [^1]:(Steve McConnell. Code Complete: A Practical Handbook of Software Construction, 2nd Edition, Microsoft Press, 2004)
