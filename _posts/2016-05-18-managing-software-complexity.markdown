@@ -10,7 +10,7 @@ When I went to university and started learning to program I spent a lot of my fr
 
 I have seen a lot of projects where simple fixes introduce multiple bugs, where programmers do not understand how the system works and are afraid to make changes, the systems end up succumbing in their own complexity. 
 
-However, even though I am providing some pointers, the reader should keep in mind that complexity in one end could be simplicity in another end. There is no rule of thumb or a pragmatic way to always achieve simplicity and many times complexity is warranted. There are two terms to keep in mind here, *essential complexity* and *accidental complexity*, programming is not simple and the tasks our systems need to address are not inherently simple either, so a complex design would be warranted in order to minimize the growth of *accidental complexity*. 
+In this article, even though I am providing some pointers, the reader should keep in mind that complexity in one end could be simplicity in another end. There is no rule of thumb or a pragmatic way to always achieve simplicity and many times complexity is warranted. There are two terms to keep in mind here, *essential complexity* and *accidental complexity*, programming is not simple and the tasks our systems need to address are not inherently simple either, so a complex design would be warranted in order to minimize the growth of *accidental complexity*. 
 
 # Software Complexity
 
