@@ -60,6 +60,6 @@ Well designed abstractions allow the programmer to focus on using an interface w
 All programmers are taught early to use design patterns, but surprisingly many developers do not have a clear understanding or even knowledge about the most fundamental ones. Design patterns at their core are ready-made solutions to the most common problems encountered in programming and provide familiar abstractions easily recongized by other programmers. So if you do not have a firm understanding of for instance  Adapter, Bridge, Decorator, Facade, Factory method, Template method, Observor, Singleton and Strategy pattern, I strongly suggest you pick up a pattern book and start reading.
 
 #Final Words
-The message I wanted to deliver is to always think about the complexity in your code. It is hard to provide clear rules to follow, but as long as you keep the concept in mind you reflect over the impact of your code. 
+The message I wanted to deliver is to always think about the complexity in your code. It is hard to provide clear rules to follow, but as long as you keep the concept in mind you reflect over the impact on the complexity of your code. 
 
 [^1]:(Steve McConnell. Code Complete: A Practical Handbook of Software Construction, 2nd Edition, Microsoft Press, 2004)
