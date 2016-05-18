@@ -26,3 +26,5 @@ One thing that really stuck with me when I read [Code Complete](http://www.amazo
 >"Pat yourself on the back for reading this book. You're already learning more than most people in the software industry because one book is more than most programmers read each year (DeMarco and Lister 1999)."
 
 I do not find it particularly hard to find the time to read a book now and then and it really surprises me how uncommon it seems to be. It would be interesting to see similar statistics about spare time programming. After all, it is a valued trait by recruiters and managers, so any career devoted developer should try to pursue a project.
+
+/Allu
