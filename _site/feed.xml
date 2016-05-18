@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>oberheim.github.io</title>
+    <description>Alexander Heimonen is a .NET Consultant at Squeed and maintains this programming blog on his free time.
+</description>
+    <link>http://oberheim.github.io/</link>
+    <atom:link href="http://oberheim.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 18 May 2016 13:19:06 +0200</pubDate>
+    <lastBuildDate>Wed, 18 May 2016 13:19:06 +0200</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Managing Software Complexity</title>
+        <description>&lt;p&gt;When I went to university and started learning to program I spent a lot of my free time making games from scratch, I wanted to apply some of my physics knowledge in making game engines. I started off with making a space simulation game and implemented movement based on &lt;em&gt;Newton’s law of motion,&lt;/em&gt; gravity was affecting the ships and I made them able to shoot bullets. However, the engine proved to become more difficult to program the more features I added, I wanted collision detection, support for multiple players etc. and finally ended up in scrapping it all together due to design flaws and the engine being way too complex to keep together without introducing bugs all across the board. I did not give up, though, and ended up restarting from scratch multiple times bringing knowledge of my mistakes to the next try. My point being that reducing complexity in software design is not something only the most senior software architects need to address, it is among the first problems a junior programmer has to learn ways to tackle as well. &lt;/p&gt;
+
+&lt;p&gt;I have seen a lot of projects where simple fixes introduce multiple bugs, where programmers do not understand how the system works and are afraid to make changes, the systems end up succumbing in their own complexity. &lt;/p&gt;
+
+&lt;p&gt;However, even though I am providing some pointers, the reader should keep in mind that complexity in one end could be simplicity in another end. There is no rule of thumb or a pragmatic way to always achieve simplicity and many times complexity is warranted. There are two terms to keep in mind here, &lt;em&gt;essential complexity&lt;/em&gt; and &lt;em&gt;accidental complexity&lt;/em&gt;, programming is not simple and the tasks our systems need to address are not inherently simple either, so a complex design would be warranted in order to minimize the growth of &lt;em&gt;accidental complexity&lt;/em&gt;. &lt;/p&gt;
+
+&lt;h1 id=&quot;software-complexity&quot;&gt;Software Complexity&lt;/h1&gt;
+
+&lt;p&gt;When we design software, what we essentially do is abstract real world problems into code, we need to create an exact model of reality since we need to determine precisely how the domain works. It is difficult to interface accurately with the complex real world, that is not only approximately correct but exactly correct. This increases the &lt;em&gt;essential complexity&lt;/em&gt; of the code, which needs to be designed in such a way that as the software grows, the &lt;em&gt;accidental complexity&lt;/em&gt; does not get out of hand and the project remains maintainable and sufficiently easy to understand.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;The most important technique to reduce complexity is to design programs in such a way that we can focus on one part at a time, as Dijkstra pointed out that no one’s skull is really big enough to contain a modern computer program (Dijkstra 1972). The system needs to be split up in several well-defined components, the most important being:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Software System&lt;/strong&gt;
+At this level, it is important to think about what the purpose of the system is, what requirements it is supposed to address and generally which technology stack is going to be used.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Subsystems or packages&lt;/strong&gt;
+It is important to identify all subsystems and their purpose at this level, how they are allowed to use each other. The latter being the most important part, if all subsystems can communicate with each other, then there is little purpose in partitioning them. The fewer dependencies a subsystem has, the easier it is to reuse elsewhere since there are fewer hoses to reconnect.	&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Classes within packages&lt;/strong&gt;
+At this level, the subsystem is divided into the most important classes or interfaces. The level of effort at this level is dependent on how big the system is and how much responsibility the developers can handle. It is generally a good idea to have a rough idea of the general class design before development begins.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now if the system is huge, a developer can focus on building one class at a time, or if the system is smaller the developer can focus on building a subsystem at a time. &lt;/p&gt;
+
+&lt;h1 id=&quot;keeping-it-clean&quot;&gt;Keeping it Clean&lt;/h1&gt;
+
+&lt;p&gt;Today’s applications grow larger and larger and a fundamental shift has started to happen years ago, the biggest complexity in software is in the application design as a whole and not in the smaller parts. This makes it top priority for a programmer to write clean and well-designed code that is easy to read. Software architecture is out of scope for this article, so I chose to focus on some guidelines to improve design, quality, readability and reduce complexity of code when designing and programming software:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Design for the maintenance programmer.&lt;/strong&gt; 
+Make your code and design self-explanatory, try to imagine what questions a maintenance programmer would ask you about your code. &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Avoid clever code.&lt;/strong&gt;
+Unless you are writing code for devices with limited resources there is little to no need to do clever bit shifts or algorithms to reduce 5% of CPU load. With that being said, most programmers love to be clever, but when working with professional code we simply have to be able to control our urges. The big downfall in clever code is maintainability, problems can be incredibly hard to fix, or as one of the co-authors of the book &lt;em&gt;C Programming Language&lt;/em&gt; put it: &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.” — Brian Kernighan﻿&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Avoid assumptions.&lt;/strong&gt;
+Everyone has done it, more often early in their careers, but these bugs still manage to find their way into the code, bugs caused by the core belief that… &lt;em&gt;“This can never happen”&lt;/em&gt;. It goes along the lines of “This number can not be negative”, “This date can never be null”, “Obviously the user is going to input correct data so we don’t risk division by zero” etc. These kinds of bugs can sometimes be hard to find, sometimes really easy depending on the assumption and where the exception comes from. However, the problem can be prevented by using assertions or some kind of validation.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Be pragmatic when you have to.&lt;/strong&gt;
+There are pragmatic ideas and rules to guide us in our decision-making, there is no need to reinvent the wheel so standard practices exist to speed up programming. However, sometimes it is worth to give a second thought to some decisions so that they do not lead to more trouble along the way. &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Louse coupling&lt;/strong&gt;
+Minimize the knowledge of connections among different components by e.g. using interfaces and good abstractions.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Minimize fan-out&lt;/strong&gt;
+For any given class, minimize the number of classes it needs to have knowledge of. Research shows that using more than seven classes within a class indicates that it may be overly complex.&lt;sup id=&quot;fnref:1:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Think about your abstractions.&lt;/strong&gt;
+Well designed abstractions allow the programmer to focus on using an interface without needing knowledge or worrying about how it works internally, meaning that from a complexity point of view you can ignore irrelevant details. Programmers use abstractions at all levels of a system, however, I find it fairly common to see classes with interfaces that define &lt;em&gt;how they work&lt;/em&gt; instead of &lt;em&gt;what they do&lt;/em&gt;. Keep implementation details hidden in private routines within the classes.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Know your design patterns.&lt;/strong&gt;
+All programmers are taught early to use design patterns, but surprisingly many developers do not have a clear understanding or even knowledge about the most fundamental ones. Design patterns at their core are ready-made solutions to the most common problems encountered in programming and provide familiar abstractions easily recognized by other programmers. So if you do not have a firm understanding of for instance  Adapter, Bridge, Decorator, Facade, Factory method, Template method, Observer, Singleton and Strategy pattern, I strongly suggest you pick up a pattern book and start reading.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;final-words&quot;&gt;Final Words&lt;/h1&gt;
+
+&lt;p&gt;The message I wanted to deliver is to always think about the complexity in your code. It is hard to provide clear rules to follow, but as long as you keep the concept in mind you reflect over the impact on the complexity of your code. &lt;/p&gt;
+
+&lt;h4 id=&quot;sources&quot;&gt;Sources&lt;/h4&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;(Steve McConnell. Code Complete: A Practical Handbook of Software Construction, 2nd Edition, Microsoft Press, 2004) &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 18 May 2016 14:42:00 +0200</pubDate>
+        <link>http://oberheim.github.io/complexity/2016/05/18/managing-software-complexity.html</link>
+        <guid isPermaLink="true">http://oberheim.github.io/complexity/2016/05/18/managing-software-complexity.html</guid>
+        
+        
+        <category>complexity</category>
+        
+      </item>
+    
+      <item>
+        <title>Managing Software Complexity</title>
+        <description>&lt;p&gt;When I went to university and started learning programming I spent a lot of my free time making games from scratch, I wanted to apply some of my physics knowledge in making game engines. I started off with making a space simulation game and implemented movement based on &lt;em&gt;Newton’s law of motion,&lt;/em&gt; gravity was affecting the ships and I made them able to shoot bullets. However, the engine proved to become more difficult to program the more features I added, I wanted collision detection, support for multiple players etc. and finally ended up in scrapping it all together due to design flaws and the engine being way too complex to keep together without introducing bugs all across the board. I did not give up, though, and ended up restarting from scratch multiple times bringing knowledge of my mistakes to the next try. My point being that reducing complexity in software design is not something only the most senior software architects need to address, it is among the first problems a junior programmer has to learn ways to tackle as well. &lt;/p&gt;
+
+&lt;p&gt;I have seen a lot of projects where simple fixes introduce multiple bugs, where programmers do not understand how the system works and are afraid to make changes, the systems end up succumbing in their own complexity. &lt;/p&gt;
+
+&lt;p&gt;However, even though I am providing some pointers, the reader should keep in mind that complexity in one end could be simplicity in another end. There is no rule of thumb or a pragmatic way to always achieve simplicity and many times complexity is warranted. There are two terms to keep in mind here, &lt;em&gt;essential complexity&lt;/em&gt; and &lt;em&gt;accidental complexity&lt;/em&gt;, programming is not simple and the tasks our systems need to address are not inherently simple either, so a complex design would be warranted in order to minimize the growth of &lt;em&gt;accidental complexity&lt;/em&gt;. &lt;/p&gt;
+
+&lt;h1 id=&quot;software-complexity&quot;&gt;Software Complexity&lt;/h1&gt;
+
+&lt;p&gt;When we design software, what we essentially do is abstract real world problems into code, we need to create an exact model of reality since we need to determine precisely how the domain works. It is difficult to interface accurately with the complex real world, that is not only approximately correct but exactly correct. This increases the &lt;em&gt;essential complexity&lt;/em&gt; of the code, which needs to be designed in such a way that as the software grows, the &lt;em&gt;accidental complexity&lt;/em&gt; does not get out of hand and the project remains maintainable and sufficiently easy to understand.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;The most important technique to reduce complexity is to design programs in such a way that we can focus on one part at a time, as Dijkstra pointed out that no one’s skull is really big enough to contain a modern computer program (Dijkstra 1972). The system needs to be split up in several well-defined components, the most important being:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Software System&lt;/strong&gt;
+At this level, it is important to think about what the purpose of the system is, what requirements it is supposed to address and generally which technology stack is going to be used.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Subsystems or packages&lt;/strong&gt;
+It is important to identify all subsystems and their purpose at this level, how they are allowed to use each other. The latter being the most important part, if all subsystems can communicate with each other, then there is little purpose in partitioning them. The fewer dependencies a subsystem has, the easier it is to reuse elsewhere since there are fewer hoses to reconnect.	&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Classes within packages&lt;/strong&gt;
+At this level, the subsystem is divided into the most important classes or interfaces. The level of effort at this level is dependent on how big the system is and how much responsibility the developers can handle. It is generally a good idea to have a rough idea of the general class design before development begins.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now if the system is huge, a developer can focus on building one class at a time, or if the system is smaller the developer can focus on building a subsystem at a time. &lt;/p&gt;
+
+&lt;h1 id=&quot;keeping-it-clean&quot;&gt;Keeping it Clean&lt;/h1&gt;
+
+&lt;p&gt;Today’s applications grow larger and larger and a fundamental shift has started to happen years ago, the biggest complexity in software is in the application design as a whole and not in the smaller parts. This makes it top priority for a programmer to write clean and well-designed code that is easy to read. Software architecture is out of scope for this article, so I chose to focus on some guidelines to improve design, quality, readability and reduce complexity of code when designing and programming software:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Design for the maintenance programmer.&lt;/strong&gt; 
+Make your code and design self-explanatory, try to imagine what questions a maintenance programmer would ask you about your code. &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Avoid clever code.&lt;/strong&gt;
+Unless you are writing code for devices with limited resources there is little to no need to do clever bit shifts or algorithms to reduce 5% of CPU load. With that being said, most programmers love to be clever, but when working with professional code we simply have to be able to control our urges. The big downfall in clever code is maintainability, problems can be incredibly hard to fix, or as one of the co-authors of the book &lt;em&gt;C Programming Language&lt;/em&gt; put it: &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.” — Brian Kernighan﻿&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Avoid assumptions.&lt;/strong&gt;
+Everyone has done it, more often early in their careers, but these bugs still manage to find their way into the code, bugs caused by the core belief that… &lt;em&gt;“This can never happen”&lt;/em&gt;. It goes along the lines of “This number can not be negative”, “This date can never be null”, “Obviously the user is going to input correct data so we don’t risk division by zero” etc. These kinds of bugs can sometimes be hard to find, sometimes really easy depending on the assumption and where the exception comes from. However, the problem can be prevented by using assertions or some kind of validation.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Be pragmatic when you have to.&lt;/strong&gt;
+There are pragmatic ideas and rules to guide us in our decision-making, there is no need to reinvent the wheel so standard practices exist to speed up programming. However, sometimes it is worth to give a second thought to some decisions so that they do not lead to more trouble along the way. &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Louse coupling&lt;/strong&gt;
+Minimize the knowledge of connections among different components by e.g. using interfaces and good abstractions.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Minimize fan-out&lt;/strong&gt;
+For any given class, minimize the number of classes it needs to have knowledge of. Research shows that using more than seven classes within a class indicates that it may be overly complex.&lt;sup id=&quot;fnref:1:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Think about your abstractions.&lt;/strong&gt;
+Well designed abstractions allow the programmer to focus on using an interface without needing knowledge or worrying about how it works internally, meaning that from a complexity point of view you can ignore irrelevant details. Programmers use abstractions at all levels of a system, however, I find it fairly common to see classes with interfaces that define &lt;em&gt;how they work&lt;/em&gt; instead of &lt;em&gt;what they do&lt;/em&gt;. Keep implementation details hidden in private routines within the classes.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Know your design patterns.&lt;/strong&gt;
+All programmers are taught early to use design patterns, but surprisingly many developers do not have a clear understanding or even knowledge about the most fundamental ones. Design patterns at their core are ready-made solutions to the most common problems encountered in programming and provide familiar abstractions easily recognized by other programmers. So if you do not have a firm understanding of for instance  Adapter, Bridge, Decorator, Facade, Factory method, Template method, Observer, Singleton and Strategy pattern, I strongly suggest you pick up a pattern book and start reading.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;final-words&quot;&gt;Final Words&lt;/h1&gt;
+
+&lt;p&gt;The message I wanted to deliver is to always think about the complexity in your code. It is hard to provide clear rules to follow, but as long as you keep the concept in mind you reflect over the impact on the complexity of your code. &lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;(Steve McConnell. Code Complete: A Practical Handbook of Software Construction, 2nd Edition, Microsoft Press, 2004) &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 16 May 2016 15:05:00 +0200</pubDate>
+        <link>http://oberheim.github.io/complexity/2016/05/16/managing-software-complexity.html</link>
+        <guid isPermaLink="true">http://oberheim.github.io/complexity/2016/05/16/managing-software-complexity.html</guid>
+        
+        <category>draft</category>
+        
+        
+        <category>complexity</category>
+        
+      </item>
+    
+      <item>
+        <title>Are Mainframes Still Relevant?</title>
+        <description>&lt;p&gt;I am in an interesting situation at work where I face two realities, on one hand I work with a customer which entire IT infrastructure is based on an old IBM mainframe and on the other hand I am involved in a huge project called &lt;a href=&quot;http://momentum.ciber.com/&quot;&gt;Ciber Momentum&lt;/a&gt; which purpose is to accelerate application transformation to modern languages. In other words, to help get rid of legacy mainframe applications. Me and my team have discussed several times how important it is for our customer to modernize their codebase, since every day all integrations and development we make increase the technical debt the company accumulates. They are making the migration to a new system harder by the day and the reality is that soon enough they have to make the transition in order to stay relevant. Perhaps this stubbornness is what makes established companies to become surpassed by new startups, with modern codebases and less technical debt enabling them to change more rapidly. Another problem is that traditional modernization projects are unavoidably expensive with no short term return of investment, which by no means helps the management (which necessarily does not understand the technical reasoning) hard to make the decision to launch such a huge project.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-state-of-mainframe-development&quot;&gt;The state of mainframe development&lt;/h3&gt;
+&lt;p&gt;Approximately 150-250 billion lines of COBOL code is running, mostly on mainframes, today and it is believed that more COBOL transactions occur on a day than Google searches.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; So one can argue that there is not a deficit of job opportunities, however there is clearly a deficit of mainframe programmers with the required skillset of COBOL, CICS and/or RPG2. One arguably obvious reason for that is simply that the prime time for mainframe development was a few decades ago, but according to my research&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; there are a few social reasons why new programmers lack interest in becoming mainframe developers:&lt;/p&gt;
+
+&lt;h4 id=&quot;most-of-the-work-is-maintenance-work&quot;&gt;Most of the work is maintenance work&lt;/h4&gt;
+&lt;p&gt;Most of the work on mainframes today is done to keep them alive and functioning in the ever changing software environment, hence condemning the developer to do maintenance work since there is little innovation in the field. Then again, why should companies invest in new development since they know that sooner or later they will have to switch to another platform?&lt;/p&gt;
+
+&lt;h4 id=&quot;investments-in-mainframe-knowledge-are-not-easily-translated-to-other-fields&quot;&gt;Investments in mainframe knowledge are not easily translated to other fields&lt;/h4&gt;
+&lt;p&gt;Developers always fear to become obsolete, it’s hard enough to stay relevant as it is today. So investing a full 8 hours a day into programming something that hardly is of use anywhere else puts a lot of stress to work with modern technologies on the free time in order to eventually transition away from mainframe programming. &lt;/p&gt;
+
+&lt;h4 id=&quot;it-is-not-accessible-to-the-casual-learner&quot;&gt;It is not accessible to the casual learner&lt;/h4&gt;
+&lt;p&gt;Let us say that you are an aspiring young developer really interested in becoming a mainframe programmer, how do you get started? I would guess that the easiest way to learn is on the job, but that would require for you to get hired as a long term investment for the company. A lot of programmers code at home on their PC without access to a mainframe, but it seems like there is a &lt;a href=&quot;http://www.hercules-390.org/&quot;&gt;virtual mainframe&lt;/a&gt; available, even though it’s a daunting task, one could set up.&lt;/p&gt;
+
+&lt;p&gt;So the quantity of programmers with the required skillset is declining and hence the cost to keep the mainframes running is increasing. Even though COBOL is dying it is estimated that it its best before date is in the late 2020:s or 2030:s.&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; How big is the hurry to replace these applications? One reason they are still around is that they simply work and do that well, so should they be modernized just because they are written in COBOL? &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“For the most part, the COBOL programs that are out there are the kinds that take data from a database somewhere, crunch them and print out reports on a big printer somewhere, or print off cheques, or something like that. It’s the real pretty straightforward applications that don’t have a lot of technical complexity, that haven’t changed. Like, if you have employee records somewhere and you have a payroll run to run, that whole process hasn’t changed that much since the 1950s. That’s why companies haven’t changed the stuff. (Evan Weaver, chair of the School of Information and Communications Technology at Toronto’s Seneca College.)”&lt;sup id=&quot;fnref:3:1&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;With that said, there are still loads of mainframes that handle a big part of a company’s business logic and that is a reason to get worried. It is not hard to argue that it is a lot easier to manage a modern application that is responsive to your business needs and actually helps you innovate, instead of maintaining an old system with legacy code and complicated release routines. The pace of business is constantly accelerating and so is the pace of technology.&lt;/p&gt;
+
+&lt;h3 id=&quot;ciber-momentum&quot;&gt;Ciber Momentum&lt;/h3&gt;
+&lt;p&gt;Ciber Momentum is a transformation accelerator that rapidly automates code for legacy modernization. Using Ciber Momentum, up to 85% of the total lines of code for a project can be generated. It does not rely on an army of expensive programmers that can contribute to risk and poor quality, it does not do a like-for-like translation but instead transforms it to a modern software architecture with a modern user experience. Do not let your competition surpass you by sticking to your legacy solution, instead, move at the speed of business at &lt;a href=&quot;http://momentum.ciber.com/&quot;&gt;http://momentum.ciber.com/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;sources&quot;&gt;Sources&lt;/h4&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;(Brian Bloom, COBOL and the mainframe: big business and big money, 2013, &lt;a href=&quot;http://blog.stafflink.ca/recruiting-tips/cobol-and-the-mainframe-big-business-and-big-money&quot;&gt;URL&lt;/a&gt;, (accessed 02 February 2016)) &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;(Stack exchange, Why aren’t young programmers interested in mainframes?, 2012-2015, &lt;a href=&quot;http://programmers.stackexchange.com/questions/75486/why-arent-young-programmers-interested-in-mainframes&quot;&gt;URL&lt;/a&gt;, (accessed 02 February 2016)) &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;(Brian Bloom, The future of COBOL: Why it won’t go away soon, 2012, &lt;a href=&quot;http://www.itworldcanada.com/article/the-future-of-cobol-why-it-wont-go-away-soon/45722&quot;&gt;URL&lt;/a&gt;, (accessed 02 February 2016)) &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:3:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 10 Mar 2016 10:11:15 +0100</pubDate>
+        <link>http://oberheim.github.io/mainframe/2016/03/10/are-mainframes-still-relevant.html</link>
+        <guid isPermaLink="true">http://oberheim.github.io/mainframe/2016/03/10/are-mainframes-still-relevant.html</guid>
+        
+        
+        <category>mainframe</category>
+        
+      </item>
+    
+      <item>
+        <title>Artificial Intelligence Today</title>
+        <description>&lt;p&gt;Artificial Intelligence has been around since the beginning of computing and was founded as an academic discipline in 1956. Ever since then, the scientific community has thought that they are close to a real breakthrough every decade or so. Already in the 40’s research on neurology found out that the human brain is a network of neurons that fires in all or nothing pulses, and &lt;em&gt;Alan Turing&lt;/em&gt; suggested that it might be possible to build an electronic brain. In 1951, a 24 years old graduate student, &lt;em&gt;Marvin Minsky&lt;/em&gt; built the first neural net machine, also known as &lt;em&gt;SNARC&lt;/em&gt;, which is referred to as the first artificial self-learning machine.&lt;/p&gt;
+
+&lt;p&gt;But if they already had the right ideas back then, why has AI got so much traction only in recent years?
+It turns out that programs like this require incredible amounts of computing power and early logic relies on traversing trees, where the complexity increases exponentially. In mathematics this is called a combinatorial explosion, which is described as a function that grows very rapidly as a result of combinatorial considerations. Therefore a lot of effort has been put in heuristics, finding techniques for solving problems more quickly by trading completeness, accuracy or precision for speed. Heuristics help to reduce the number of alternatives from an exponential number to a polynomial number. In a general sense, the term heuristic is used for any advice that is often effective, but is not guaranteed to work in every case.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-dangers-of-artificial-intelligence&quot;&gt;The Dangers of Artificial Intelligence&lt;/h3&gt;
+&lt;p&gt;There has been quite a lot media attention on the advances of AI in recent years, in particular for unarmed drones and weapons technology. And rightfully so, the US military is funding more research than ever on autonomous and self-aware robots. 
+Some of our heavy weight leaders in the scientific community, the physicist &lt;em&gt;Stephen Hawking&lt;/em&gt;, the entrepreneur &lt;em&gt;Elon Musk&lt;/em&gt; and the multi billionaire, philanthropist &lt;em&gt;Bill Gates&lt;/em&gt; in particular, recently issued an open letter about the dangers of AI if we don’t take extreme caution. They agree that success in creating AI would be the biggest event in human history, but unfortunately possibly the last unless we learn how to avoid the risks.&lt;/p&gt;
+
+&lt;p&gt;So how afraid should we be? I think that there is some substance to their concerns, but in reality the vast majority of AI:s you and me will encounter are referred to as weak AI:s. For instance, a real time GPS Map application that routes your pathway across traffic to find the most efficient way from point A to point B. The routing software can get really good at that, thousands of times better and faster than a human actually, but would you say that it was thinking? No, and that’s the rub! &lt;/p&gt;
+
+&lt;p&gt;They warn us about what they call &lt;em&gt;Strong Artificial Intelligence&lt;/em&gt;. AI that is capable of thinking by itself, perhaps with a consciousness and ability to make decisions. 	
+Some scientists think that in 2025 we will have an AI that is equally as intelligent as a human being and by 2040 one single AI instance will be as intelligent as the entire human race collectively. The AI problem can be divided into 2 sub problems, the first one is to figure out how to create intelligence, the second one is how to give the AI safe constraints or the same values as humans. I say that if we figure out problem 2 first, we’re safe.
+But what happens is just speculation, but I agree that the unknown can be daunting.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Massive transformation is on the horizon. Jobs, companies, and entire industries will be reimagined.”
+- Paul Roetzer, CEO @PR 20/20&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;artificial-intelligence-today&quot;&gt;Artificial Intelligence Today&lt;/h3&gt;
+&lt;p&gt;The Silicon Valley giants like Google and Facebook are currently riding on top of the AI wave of popularity. Google bought the secretive AI company DeepMind for 400 million dollars and are currently experimenting with the tech. Facebook uses AI to recognize peoples’ faces in pictures.&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; Then we all know about Google’s fully automated self-driving cars capable of driving a million miles without an accident. Your Android device knows when you’re on your way to work and informs you if there’s a traffic jam on the way or if your bus is late. If I search the net for a weekend trip to London both Facebook and the rest of the net gets filled with travelling ads. AI technology is literally everywhere and I bet that tomorrows fortune 500 companies follow the formula: &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Take X, add AI.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;But that is only the beginning. All the major cloud companies, plus dozens of startups, are in a mad rush to launch a Watson-like cognitive services, speech recognition software and basically anything AI related. According to quantitative analysis firm Quid, AI has attracted more than $17 billion in investments since 2009. In the year 2014 alone more than $2 billion was invested in 322 companies with AI-like technology.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;Facebook and Google have recruited researchers to join their in-house AI research teams. Yahoo, Intel, Dropbox, LinkedIn, Pinterest, and Twitter have all purchased AI companies since last year. Private investment in the AI sector has been expanding 62% a year on average for the past four years, a rate that is expected to continue.&lt;/p&gt;
+
+&lt;p&gt;So what does all this mean for the rest of us? Do we sit here and wait until the Silicon Valley companies develop their technology and get all the market share for themselves? Well, to be honest the answer is both yes and no and frankly depends on what you want to do. The thing is that creating a truly intelligent AI requires incredible amounts of resources and data, and naturally an AI gets smarter the more data it gets which puts certain companies at a competitive advantage. Literally everyone is using Google’s services so they have arguably the best data source for their research. So in the end I think there will be just 2-3 companies with competing AI’s. 
+But in the same way, the internet is a result of the cold war, we get a lot of technology from this research as well. We will be able to use their AI services, and we can implement our own frameworks with components of AI, like Machine Learning or Deep Neural Networks.&lt;/p&gt;
+
+&lt;h3 id=&quot;deep-neural-networks&quot;&gt;Deep Neural Networks&lt;/h3&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“Neural networks and deep learning currently provide the best solutions to many problems in image recognition, speech recognition, and natural language processing. - Michael Nielsen&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Artificial neural networks are trained by showing it a great amount of training examples and gradually adjusting the network parameters until it gives satisfactory classifications. A typical network is constructed using 10-30 stacked layers of artificial neurons. When for instance feeding images to a Neural Network the input layer does some low level processing and then outputs the result to the next layer, until the final layer is reached which then determines the networks interpretation of the image.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“One of the challenges of neural networks is understanding what exactly goes on at each layer. We know that after training, each layer progressively extracts higher and higher-level features of the image, until the final layer essentially makes a decision on what the image shows. For example, the first layer maybe looks for edges or corners. Intermediate layers interpret the basic features to look for overall shapes or components, like a door or a leaf. The final few layers assemble those into complete interpretations, these neurons activate in response to very complex things such as entire buildings or trees. - Alexander Mordvintsev”&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;machine-learning&quot;&gt;Machine Learning&lt;/h3&gt;
+&lt;p&gt;Deep neural networks is a subfield of Deep Learning which in turn is a subfield of Machine Learning. Which is a subfield of Artificial Intelligence. Machine Learning in general is the most utilized and useful aspect of AI at the moment. By definition, Machine learning explores the study and construction of algorithms that can learn from and make predictions on data.&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt; Machine Learning algorithms make data-driven predictions or decisions based on a model of example inputs instead of following conventional strict logic, typical in programming. These tasks are typically classified into three broad categories, depending on the nature of the learning input, these are:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Supervised Learning&lt;/strong&gt;: The learning algorithm is fed with desirable labeled inputs and their desired outputs, in order to teach general rules which map inputs to outputs.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Unsupervised Learning&lt;/strong&gt;: The learning algorithm is fed with unlabeled data letting it make its own independent interpretations. However, you can feed it with grouped data in order to help it reach meaningful conclusions.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Reinforcement Learning&lt;/strong&gt;: Inspired from how humans learn, a learning algorithm is given a goal and by interacting with a dynamic environment, without any input about if it has come close to its goal or not, it also learns about the consequences of its actions.&lt;/p&gt;
+
+&lt;p&gt;The thing is that Machine Learning does not have to be that complicated. A really simple but surprisingly efficient example is by using Linear Regression. The purpose of this article is not to teach specific implementations, but in short you take a bunch of data points and try to find a linear approximation which fits the data best. &lt;a href=&quot;https://en.wikipedia.org/wiki/Linear_regression&quot;&gt;You can read more about Linear Regression on Wikipedia&lt;/a&gt;. My point is that as long as we are creative we can find use cases for AI in basically any sort of application we are developing. For instance when looking for deviant behavior in fraud detection or credit risks, or dynamic pricing and product recommendations in eCommerce applications, or just take a look at your Spotify account and see how they recommend music based on what you are listening to. They actually analyze the music itself with deep neural networks and are able to recommend music based on how it sounds, so it is based on a lot more than just metadata!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;”It will be more about the sound. You’ll be able to search by the content of the music instead of just text information associated with it.”
+– Nicola Montecchio, head of Deep Learning @Spotify&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Personally I think that a lot of these concepts are easy enough to understand and for us to stay relevant as developers we need to start investing in these skill sets. We are moving more and more towards a Big Data world and effective analysis techniques are essential in order to stay competitive, and imagine what user experiences we can create in our applications using this technology!&lt;/p&gt;
+
+&lt;p&gt;I will give a real world example of something I have done. I worked for one of Sweden’s biggest datacom and telecom companies, their billing and customer data was in an economy system and their associated costs for their broadband network was in another specialized system. However, they had no connection between each customer and the associated cost for the connection and to make matters worse, there were tens of thousands of entities to be matched, so it could not be done manually. No conventional script could do it either because most of the data was written by hand and therefore full of spelling errors and no specific patterns to match since they adjusted the data based on customer billing needs. So me and a former colleague made an AI that made an educated guess for each entity. The program could match about 90% in one go and the remaining 10% was associated with some sort of error, maybe a resource was unmatchable because there was no customer utilizing it! &lt;/p&gt;
+
+&lt;p&gt;So in the end we used AI to solve a real business problem, a problem which had no simple solution and would have been extremely hard to solve using a conventional algorithm. We simply need AI as a tool in our toolbox and the businesses that realize it first are going to have a huge edge amongst their competition.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:5&quot;&gt;
+      &lt;p&gt;(Arjun Kharpal, How AI could make you a top stock-picker, 2015, &lt;a href=&quot;http://www.cnbc.com/2015/07/09/neokamis-artificial-intelligence-app-wants-to-make-you-a-top-stock-picker.html&quot;&gt;URL&lt;/a&gt;, (accessed 14 February 2016)) &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;(Kevin Kelly, The Three Breakthroughs That Have Finally Unleashed AI on the World, 2014, &lt;a href=&quot;http://www.wired.com/2014/10/future-of-artificial-intelligence/&quot;&gt;URL&lt;/a&gt;, (accessed 14 February 2016)) &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;(Michael Nielsen, Neural Networks and Deep Learning, 2016 &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/&quot;&gt;URL&lt;/a&gt;, (accessed 14 February 2016)) &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;(Alexander Mordvintsev, Inceptionism: Going Deeper into Neural Networks, 2015, &lt;a href=&quot;http://googleresearch.blogspot.se/2015/06/inceptionism-going-deeper-into-neural.html&quot;&gt;URL&lt;/a&gt;, (accessed 14 February 2016)) &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
+      &lt;p&gt;(Ron Kohavi; Foster Provost, Glossary of Terms, 1998, &lt;a href=&quot;http://ai.stanford.edu/~ronnyk/glossary.html&quot;&gt;URL&lt;/a&gt;, (accessed 14 February 2016)) &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sun, 14 Feb 2016 01:00:00 +0100</pubDate>
+        <link>http://oberheim.github.io/ai/2016/02/14/artificial-intelligence-today.html</link>
+        <guid isPermaLink="true">http://oberheim.github.io/ai/2016/02/14/artificial-intelligence-today.html</guid>
+        
+        
+        <category>ai</category>
+        
+      </item>
+    
+      <item>
+        <title>Skipping comments leads to higher quality code</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://github.com/Oberheim/oberheim.github.io/raw/master/_assets/images/bad_code.png&quot; alt=&quot;Some really bad code&quot; style=&quot;max-width: 100%;height:auto;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Every now and then I find myself in the discussion of whether we should use comments in our code or not. I believe that comments are often misused as duct tape for bad code and limiting their use leads to higher quality code. Here is why:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Commenting code violates the &lt;a href=&quot;https://en.wikipedia.org/wiki/Don&#39;t_repeat_yourself&quot;&gt;DRY principle&lt;/a&gt;.&lt;/strong&gt; By writing comments you are essentially duplicating what already is written in code. The comments will inevitably become out of date as the code evolves. Either by developers who do not bother to update the comments, or simply do not understand the consequences of a change well enough to update the comments.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Comments can be plain wrong!&lt;/strong&gt; People use comments to explain what code does on a higher abstraction level, this could be because the code is really complicated (read: bad) so commenting it is justified to make the code more readable. There are however no guarantees that that the comments are correct, &lt;em&gt;the only 100% correct description of what the code does is the code itself.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A pretty common counter argument I receive, which Jeff Atwood (the author of &lt;a href=&quot;http://blog.codinghorror.com/&quot;&gt;Coding horror&lt;/a&gt;) nicely put into words, is: &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;No matter how simple, concise, and clear your code may end up being, it’s impossible for code to be completely self-documenting. Comments can never be replaced by code alone.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Interestingly enough, he uses the following example: &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;What is perfectly, transparently obvious to one developer may be utterly opaque to another developer who has no context. Consider this bit of commenting advice:&lt;/p&gt;
+
+  &lt;p&gt;You may very well know that&lt;/p&gt;
+
+  &lt;p&gt;&lt;code&gt;string = join(&#39;&#39;,reverse(split(&#39;&#39;,$string)));&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;reverses your string, but how hard is it to insert&lt;/p&gt;
+
+  &lt;p&gt;&lt;code&gt;# Reverse the string&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;into your Perl file?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Yes! How hard can it be? Well, I might as well ask how hard can it be to refactor it to:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-perl&quot; data-lang=&quot;perl&quot;&gt;&lt;span class=&quot;nv&quot;&gt;reversedString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ReverseString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Not only do we now have a reusable method for reversing strings, there is also no doubt what the code is doing.&lt;/p&gt;
+
+&lt;h1 id=&quot;techniques-to-replace-comments&quot;&gt;Techniques to replace comments&lt;/h1&gt;
+&lt;p&gt;I dug up some code I myself wrote a few years ago (it was actually written in objective-c for an iPhone application, but I rewrote it as C# now to save horizontal space) which we can analyze for this purpose. &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DidUpdateLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Location&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Location&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oldLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//Check if the horizontal accuracy indicates an invalid measurement
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;horizontalAccuracy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//Test the measurement to see if it is more accurate than the previous measurement
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BestEffortAtLocation&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BestEffortAtLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;horizontalAccuracy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;horizontalAccuracy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//Store location as best effort
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;bestEffortAtLocation&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//Test the measurement to see if it meets the desired accuracy
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;horizontalAccuracy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LocationManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;desiredAccuracy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//We have a measurement that meets our requirements and can stop updating the location
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;LocationManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;StopUpdatingLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;CurrentLocation&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;PostNotification&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LocationFound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The code is cluttered with comments, everything that seems the least complicated has an explanatory comment and most of them are simply restating the following line of code in plain English.
+So in order to improve the code, the duplicate lines can simply be removed:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//Store location as best effort
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bestEffortAtLocation&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;But by far the best refactoring that can be done is to replace comments with well named functions that explain what is done:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//Check if the horizontal accuracy indicates an invalid measurement
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;horizontalAccuracy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Becomes&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;IsInvalidMeasurement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now the code reads like a book, just go ahead and try this trick in any complicated function with loads of conditional statements, you will be surprised how much this improves readability. It also encapsulates errors, making stack traces point at the exact location of for instance a null exception. Additionally the methods are really easy to unit test! Because usually they have easily definable input/output data.&lt;/p&gt;
+
+&lt;p&gt;Finally, fully refactored the method could look like the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DidUpdateLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Location&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Location&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oldLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;IsInvalidMeasurement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;IsMoreAccurate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BestEffortAtLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;bestEffortAtLocation&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;horizontalAccuracy&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LocationManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;desiredAccuracy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;LocationManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;StopUpdatingLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;CurrentLocation&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newLocation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;PostNotification&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LocationFound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Don’t you agree that this is easier to read?&lt;/p&gt;
+
+&lt;h1 id=&quot;if-comments-are-so-bad-why-do-people-still-use-them&quot;&gt;If comments are so bad, why do people still use them?&lt;/h1&gt;
+&lt;p&gt;In the academia I was taught that code without comments is bad because it is hard to read and understand. I used to believe in this statement in school because in that environment it was somewhat true. We programmed a lot with C and somehow the praxis when teaching C (maybe because of its heritage as an old school language) is to use short and abstract variable names. It seems like the more theoretical a subject is, the worse the code is. For instance, let us take a look at the Wikipedia page for &lt;a href=&quot;https://en.wikipedia.org/wiki/Merge_sort&quot;&gt;Merge sort&lt;/a&gt;, it is interestingly common to use bad variable names such as j, B, i1, A and crowd the code with comments.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// left half is A[iBegin :iMiddle-1]
+// right half is A[iMiddle:iEnd-1   ]
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TopDownMerge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iBegin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iMiddle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iEnd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;i0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iBegin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iMiddle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// While there are elements in the left or right runs
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iBegin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iEnd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// If left run head exists and is &amp;lt;= existing right run head.
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iMiddle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iEnd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;i0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;i1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It makes sense to use general variable names in cases like this, because the purpose is to teach an algorithm, not how to write clean code. The problem is, that if this is the only thing students see they start to write similar code. And when the code is abstract and hard to understand, it also makes sense to write comments that explain what is happening at a higher abstraction level. To make matters worse, we were all taught to write loads of comments in our code, so much that we even failed our assignments if they were not &lt;em&gt;“properly commented”&lt;/em&gt;. I also believe that the learning material is crowded with comments simply because of teaching purposes, the author helps the students understand important concepts within the code.
+Dave Thomas also made the same observation in Pragmatic Programmer:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Programmers are taught to comment their code: good code has lots of comments. Unfortunately, they are never taught &lt;em&gt;why&lt;/em&gt; code needs comments: bad code requires lots of comments.&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I also did some digging in one of my favorite books, Code Complete to see what Steve McConnell’s view on commenting code is, and he somewhat agrees:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Comments are used to explain difficult code&lt;/em&gt;. Comments have an important role to play, but they should not be used as a crutch to explain bad code. The age-old wisdom is dead-on: “Don’t document bad code - rewrite it” (Kernighan and Plauger 1978).&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There you have it again, if you have read anything he has written you know how focused he is on writing good quality code. &lt;/p&gt;
+
+&lt;p&gt;So my point is that most programmers are taught from the beginning to become vivid commenters and therefore need to be convinced or taught these ideas.&lt;/p&gt;
+
+&lt;h1 id=&quot;but-we-write-comments-anyway&quot;&gt;But we write comments anyway&lt;/h1&gt;
+&lt;p&gt;Do you agree at this point that comments are a code smell? I do realize that even though we have our pragmatic views and principles about coding practices, only a fool would follow them blindly. We live in a world with loads of stress and tight deadlines, the code we write is not always perfect and rightfully so, sometimes it is more important to ship on time than to write perfect code. Perhaps my favorite quote about this subject is from Clean Code:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The proper use of comments is to compensate for our failure to express ourselves in code. Note that I used the word &lt;em&gt;failure&lt;/em&gt;. I meant it. Comments are always failures.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So given the time frame to write the code, if by flipping all the stones you still do not feel confident enough to leave the code without an explanatory comment, you should rightfully feel bad. You failed to express yourself with your craft, but at least you know it is bad and might come back some day to fix it.&lt;/p&gt;
+
+&lt;h1 id=&quot;update&quot;&gt;Update&lt;/h1&gt;
+&lt;p&gt;I just wanted to &lt;strong&gt;clarify&lt;/strong&gt; a point I feel some of the readers are missing. I am by no means claiming that you should never write comments, it is obviously pretty easy to figure out an edge case which countradicts my thesis. Where not writing a comment would be plain stupid. If you for instance:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Find a bug in .NET 3.5 and implement an obscure work around, write a comment! Otherwise someone might remove it because it looks like bad code.&lt;/li&gt;
+  &lt;li&gt;You make a complicated implementation, perhaps because of performance reasons that might be extremely hard to understand, do not hesitate to write a comment!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The point is, all we strive for is to make the code more readable and understandable, if it requires a comment, go for it! &lt;strong&gt;But it should not be an excuse for bad code.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;sources&quot;&gt;Sources&lt;/h4&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;(Jeff Atwood, Code Tells You How, Comments Tell You Why, &lt;em&gt;Coding Horror&lt;/em&gt;, 2006, &lt;a href=&quot;http://blog.codinghorror.com/code-tells-you-how-comments-tell-you-why/&quot;&gt;URL&lt;/a&gt;, (accessed 05 August 2015)) &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;(Andrew Hunt, David Thomas. Pragmatic Programmer: From Journeyman to Master, Adison Wesley Professional, 1999) &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
+      &lt;p&gt;(Steve McConnell. Code Complete: A Practical Handbook of Software Construction, 2nd Edition, Microsoft Press, 2004) &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 05 Aug 2015 21:00:00 +0200</pubDate>
+        <link>http://oberheim.github.io/comments/2015/08/05/skipping-comments-leads-to-higher-quality-code.html</link>
+        <guid isPermaLink="true">http://oberheim.github.io/comments/2015/08/05/skipping-comments-leads-to-higher-quality-code.html</guid>
+        
+        
+        <category>comments</category>
+        
+      </item>
+    
+      <item>
+        <title>Why everything you do should be on GitHub</title>
+        <description>&lt;p&gt;I started studying computer science in 2010 and noticed that some of the students were actively using GitHub for their version control needs. I finally created my own account in September 2011 and thought that I was horribly late to the party, I had used various SVN based solutions for my school projects by then and finally decided that I should switch. However, I already had my workflows for SVN and TFS and never completed the transition. Then I started to work full time within the .NET eco system and the company used a locally hosted TFS for version control. So I stayed put with my Visual Studio Online account and never thought more about it.&lt;/p&gt;
+
+&lt;h3 id=&quot;until-this-summer-when-i-decided-to-start-investing-in-myself&quot;&gt;Until this summer, when I decided to start investing in myself&lt;/h3&gt;
+&lt;p&gt;You can be the most talented software developer at your company, your unit tests never fail, your code is flawless and you modernize your company’s workflows and technology with every project you finish. You are 100% sure that your manager knows how much value you bring to your company, right?&lt;/p&gt;
+
+&lt;p&gt;The truth is that everything you do is not self-evident to even the people in your team, even if you do something amazing, if no one sees it, it didn’t happen! So not only do you need to focus on your development skills; &lt;em&gt;from a career perspective it is equally important to market your skills and endeavours&lt;/em&gt;. &lt;/p&gt;
+
+&lt;p&gt;Getting a GitHub account does by no means solve this transparency problem, but once you have invested time in your personal projects and started to build an impressive contribution history, you have a really strong track record of your activities. I don’t know about you, but I’ve been asked if I work on side projects on my free time on every job interview I’ve been to. I have truthfully answered that of course I do and proceeded to tell about the most recent project. But for some bizarre reason the source code has been protected in some invitation only TFS repository, so I could as well have made it all up. Now that everything I do is public knowledge on my account, I can just show it to my boss on my next performance review or salary review and of course the next time I am on the hunt for a job.&lt;/p&gt;
+
+&lt;h3 id=&quot;you-should-work-on-something-on-your-free-time&quot;&gt;You should work on something on your free time&lt;/h3&gt;
+&lt;p&gt;You have thought about it several times, maybe you even wrote a few lines of code a couple of months ago, but you just didn’t find the time or something else got in the way. Just get to it already!&lt;/p&gt;
+
+&lt;p&gt;It does not have to be the next big thing, it does not have to be a tremendously ambitious and big project, it should just be something. Maybe you want to explore a new technology or framework? Or get into mobile application development? Join an open source project? Just get to it and work on it now and then, all you need to do is show that you are willing to improve as a developer and you will distinguish yourself from nearly everyone else. &lt;/p&gt;
+
+&lt;h3 id=&quot;while-we-are-on-the-subject&quot;&gt;While we are on the subject…&lt;/h3&gt;
+&lt;p&gt;One thing that really stuck with me when I read &lt;a href=&quot;http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670&quot;&gt;Code Complete&lt;/a&gt;, was:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Pat yourself on the back for reading this book. You’re already learning more than most people in the software industry because one book is more than most programmers read each year (DeMarco and Lister 1999).”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I do not find it particularly hard to find the time to read a book now and then and it really surprises me how uncommon it seems to be. It would be interesting to see similar statistics about spare time programming. After all, it is a valued trait by recruiters and managers, so any career devoted developer should try to pursue a project.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 29 Jul 2015 18:27:46 +0200</pubDate>
+        <link>http://oberheim.github.io/github/2015/07/29/why-everything-you-do-should-be-on-github.html</link>
+        <guid isPermaLink="true">http://oberheim.github.io/github/2015/07/29/why-everything-you-do-should-be-on-github.html</guid>
+        
+        
+        <category>github</category>
+        
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,12 @@
+Article ideas
+- Why Continous Delivery matters
+- Solve problems in "Programming Pearls" and write about them
+- Lessons learned from ParanoiaSMIL
+- Article about bugs
+- Top tips for more readable code 
+   if(expression == false) is more readable than if(!expression)
+
+Projects
+- Descent campaing companion/helper
+
+
