@@ -5,8 +5,14 @@ Article ideas
 - Article about bugs
 - Top tips for more readable code 
    if(expression == false) is more readable than if(!expression)
+   declaration close to usage
+- Can I come up with something about the integration issues we have had?
+
+Career oriented
+- Collaborate more! Build a network with slack
+- It's time to start reading books
+- What Mad Men taught me about career development
 
 Projects
 - Descent campaing companion/helper
-
-
+- MonoGame 
