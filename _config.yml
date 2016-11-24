@@ -1,5 +1,5 @@
 # Site settings
-title: oberheim.github.io
+title: oberheim.se
 email: alexander.heimonen@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Alexander Heimonen is a .NET Consultant at Squeed, Stockholm and maintains this programming blog on his free time.
@@ -12,4 +12,4 @@ full_name: Alexander Heimonen
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+highlighter: null
