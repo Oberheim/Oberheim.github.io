@@ -7,6 +7,9 @@ Article ideas
    if(expression == false) is more readable than if(!expression)
    declaration close to usage
 - Can I come up with something about the integration issues we have had?
+- microservices
+- Design pattern series
+
 
 Career oriented
 - Collaborate more! Build a network with slack
