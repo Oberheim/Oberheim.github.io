@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Next Gen"
+date: 2017-11-10 16:25:00
+categories: programming
+author: Alexander Heimonen
+comments: true
+tags: draft
+---
+
+I have been to two developer conferences in the past month and it got me thinking. First of all, I'm a .NET developer so I went to Microsoft Tech Days in Stockholm where I live. TechDays was a lot better than in previous years, it didn't feel as much as a Microsoft advertisement venue as before, there were many really inspiring speakers who taught us how to use the latest Microsoft technology.
+
+I am now typing this on the train home from Malmö, where I spent the last week on another developer conference: Øredev.
+I feel incredibly inspired after this experience, trying to manage the plethora of thoughts and ideas circulating in my head. The theme was *"Next Gen"* and I have to say that they stayed true to that. It was really refreshing to listen to talks about the future, I feel it lit a spark in me that I haven't seen in a long time. I feel excited about the future, I want to explore the technical possibilities of blockchain technology. I want to see how I can enhance applications with AI. I am finally excited about .NET Core, it feels like Microsoft got it right with .NET Standard this time around.
+
+What I am trying to say is that it is worth the time and energy to go to a developer conference once in a while, and Øredev surpassed all my expecations. I can not wait to see what this inspires me to do in the near future.
